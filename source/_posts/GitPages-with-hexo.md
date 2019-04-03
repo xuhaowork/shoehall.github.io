@@ -230,6 +230,7 @@ git remote add origin git@github.com:<yourname>/<yourname>.github.io.git  # 与G
 git add --all # 将hexo仓库中的文件add进来
 git commit -m "hexo分支 hexo仓库文件第一次上传" # commit
 git push origin hexo  # push到Github项目的hexo分支上
+git push --set-upstream origin hexo # 设置hexo为默认push分支
 ```
 如果弄好了可以发布
 ```bash

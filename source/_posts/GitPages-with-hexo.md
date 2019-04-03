@@ -28,8 +28,8 @@ npm -v
 注意：这里git bash其实充当了bash命令窗口的作用. 下文的操作有些其实用cmd或者手动操作有同样效果.
 
 ### 3.部署hexo
-```
-cnpm install -g hexo-cli
+``` bash
+npm install -g hexo-cli # 安装hexo
 ```
 有时候国外的cnpm用不了需要换为淘宝云, bash中输入：
 ```
@@ -38,6 +38,7 @@ alias cnpm="npm --registry=https://registry.npm.taobao.org \
 --disturl=https://npm.taobao.org/dist \
 --userconfig=$HOME/.cnpmrc"
 ```
+之后用cnpm
 
 ### 4.创建工作目录
 ```bash
@@ -275,7 +276,7 @@ theme: theme-ad
 ### 12.markdown/pages的编辑器
 最基本的文本编辑器起始都可以, 感受好一点的是VS Code
 1)下载VS Code
-2)安装markdown插件(markdown all in one, markdown PDF, markdown previewn enhance), 安装hexo插件(hexo-one, hexopost head generator), 安装截图的粘贴插件(可以直接截图粘贴连接到md)paste image
+2)安装markdown插件(markdown all in one, markdown PDF, markdown preview enhance), 安装hexo插件(hexo-one, hexopost head generator), 安装截图的粘贴插件(可以直接截图粘贴连接到md)paste image
 ![](p1.png)
 3)配置下bash为terminal这样不用来回切换目录
 找到bash的路径（一般为C:\Program Files\Git\bin, 不记得可以去环境变量中找）

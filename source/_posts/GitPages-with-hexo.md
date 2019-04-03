@@ -1,4 +1,3 @@
-
 ---
 title: Git Pages With Hexo
 categories: 
@@ -209,7 +208,7 @@ hexo n "hexoImage3"
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/... # 此处应该填自己的github.io仓库
+  repo: git@github.com:<yourname>/<yourname>.github.io.git # 此处应该填自己的github.io仓库, 注意是ssh形式而不是http形式，这样可以直接利用已经配置好的ssh公钥（如果已经配置的话）的免密登陆
   branch: master
 ```
 2）注意：*hexo pages的deploy会有点一般的github repository不一致的地方*

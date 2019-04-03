@@ -197,7 +197,7 @@ hexo n "hexoImage3"
 如果上述内容起作用此时在_posts中会生成两个文件一个hexoImage3.md另一个hexoImage3文件夹.
 4)引用的图片放入生成的文件夹, 并在生成的md文件中加入索引
 ``` md
-![](hexoImage3/image.png)
+![](image.png)
 ```
 注：其他的音频视频mv/mp3等与之类似。
 
@@ -275,11 +275,11 @@ theme: theme-ad
 最基本的文本编辑器起始都可以, 感受好一点的是VS Code
 1)下载VS Code
 2)安装markdown插件(markdown all in one, markdown PDF, markdown previewn enhance), 安装hexo插件(hexo-one, hexopost head generator), 安装截图的粘贴插件(可以直接截图粘贴连接到md)paste image
-![](GitPages-with-hexo/p1.png)
+![](p1.png)
 3)配置下bash为terminal这样不用来回切换目录
 找到bash的路径（一般为C:\Program Files\Git\bin, 不记得可以去环境变量中找）
 在setting中设置
-![](GitPages-with-hexo/p2.png)
+![](p2.png)
 其他的几个关于windows的shell也搞搞, 包括workspace settings的
 ctrl+shift+C看下效果, 这是弹出窗口
 ctrl + `看下效果这是IDE
@@ -288,6 +288,6 @@ ctrl + `看下效果这是IDE
 2)在source目录下创建CNAME文件(无后缀), 在其中输入www.yoursite.cn
 3)在github对应仓库的domain中输入www.yoursite.cn
 4)进入域名解析的设置（以阿里云为例），新建两个解析：记录类型为CNAME, 记录值为'www.yourname.github.io'，主机记录为@和www。
-![](GitPages-with-hexo/p3.png)
+![](p3.png)
 此处相当于将你的'www.yourname.github.io'绑定到你注册的'www.yoursite.cn'
 5)发布后，等会查看是否生效

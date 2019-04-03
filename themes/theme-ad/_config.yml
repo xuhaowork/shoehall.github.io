@@ -1,0 +1,152 @@
+author: shoe hall
+
+keywords: Hexo, Theme-AD
+
+description: datashoe
+
+# 导航栏头部名称
+nav_name: shoehall's studio
+
+# 导航栏座右铭
+motto: "远山高大 风雨飘香"
+
+github: "https://github.com/datashoe/"
+
+# 站点图标和APP图标
+favicon: 
+  icon: /images/favicon.ico
+  touch_icon: /images/touch-icon.png
+
+# RSS文件位置
+rss: 
+
+# 自定义样式文件
+custom_styles: 
+
+# 自定义脚本文件
+custom_scripts: 
+
+# 代码高亮主题: normal | night | night blue | night bright | night eighties
+highlight_theme: "night eighties"
+
+# 开启数学公式渲染
+mathjax: true
+
+copyright:
+  enable: true
+  author: "datashoe"
+  show_link: true
+  more: '版权声明: 本博客所有文章除特别声明外, 均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议. 转载请注明出处!'
+
+# 建站时间. 格式：YYYY-MM-DD
+start_time: "2019-04-01"
+
+# Writing
+new_post_name: :title.md # File name of new posts
+default_layout: post
+titlecase: false # Transform title into titlecase
+external_link: true # Open external links in new tab
+filename_case: 0
+render_drafts: false
+post_asset_folder: true
+relative_link: true
+future: true
+highlight:
+  enable: true
+  line_number: true
+  auto_detect: false
+  tab_replace:
+
+
+# 如何开启 评论&统计 插件：https://godbmw.com/passages/2018-11-15-theme-bmw-docs-zh/
+# 请申请自己的 appid 和 appkey，并且替换下面的 appid 和 appkey
+leancloud:
+  appid: Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz # 填写您的appid
+  appkey: WaR7nrzhliHj9aVwdQzkdlGd # 填写您的appkey
+  comment: true # 是否开启评论系统
+  count: true # 是否开启文章统计
+
+# 需要保证leancloud.count为true
+welcome: 
+  enable: false
+  interval: 30
+
+# 需要保证leancloud.comment为false
+disqus: 
+  enable: false
+  id: 
+
+# 需要保证leancloud.count为false
+busuanzi: false
+
+# 存放sha256加密的密码
+# 拥有所有加锁文章的阅读权限
+passwords: 
+  - efe07af7441da2b69c4a41e42e73be4db47f66010a56900788a458354a7373ec # godbmw
+
+share:
+  twitter: true
+  facebook: true
+  weibo: true
+  qq: true
+  wechat: true
+
+analytics:
+  baidu:
+    enable: false
+  google:
+    enable: false
+    id: 
+  "360":
+    enable: false
+    id: 
+
+reward:
+  -
+    src: /images/wechat.png
+    alt: "WeChat"
+  -
+    src: /images/alipay.png
+    alt: "AliPay"
+
+nav:
+  -
+    name: "首页"
+    path: "/"
+  -
+    name: "归档"
+    path: "/archives/"
+  -
+    name: "标签"
+    path: "/tags/"
+  -
+    name: "分类"
+    path: "/categories/"
+  -
+    name: "关于"
+    path: "/about/"
+
+footer:
+  -
+    title: "主题"
+    children:
+      -
+        name: "pages主题源自godbmw"
+        path: "https://godbmw.com/"
+      -
+        name: "更多主题"
+        path: "https://hexo.io/themes/"
+  - 
+    title: "博客推荐"
+    children:
+      -
+        name: "阮一峰的个人网站"
+        path: "http://ruanyifeng.com/"
+  -
+    title: "系列教程"
+    children:
+      -
+        name: "设计模式手册"
+        path: "https://godbmw.com/design-patterns/"
+
+footer_contact: "Email: datashoe@126.com"

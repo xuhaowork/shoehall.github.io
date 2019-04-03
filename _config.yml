@@ -79,7 +79,7 @@ theme: theme-ad
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/datashoe/datashoe.github.io.git
+  repo: https://github.com/shoehall/shoehall.github.io.git
   branch: master
 
 

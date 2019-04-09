@@ -1,0 +1,21 @@
+---
+title: 工具箱-mathpix snipping
+date: 2019-04-09 10:08:25
+tags:
+---
+
+## 工具箱 mathpix snipping
+今天接触了一款及其强大易用的工具mathpix snipping, 可以将截图中的数学公式转为latex, 是数据挖掘工程师的利器.
+
+### 下载安装
+https://mathpix.com/
+
+### 效果展示
+打开一个文件
+ctrl+alt+M截图
+此时mathpix snapping会生成对应的latex公式
+在markdown中输入公式（vscode中安装markdown enhangcing后可以$$$输入公式。
+
+$\begin{aligned} f(x)=f\left(x_{0}\right)+f\left(x_{0}\right)\left(x-x_{0}\right)+\frac{f^{\prime}\left(x_{0}\right)}{2 !}\left(x-x_{0}\right)^{2}+\cdots+\frac{f^{(n)}\left(x_{0}\right)}{n !}\left(x-x_{0}\right)^{n}+R_{n} \end{aligned}$
+
+注：mathpix将换行也识别出来了，由于markdown本身排版可能不一样因此可以通过增删换行'\\\ &'来重新排版。

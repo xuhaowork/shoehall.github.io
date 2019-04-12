@@ -21,6 +21,7 @@ chown
 使用方法：hadoop fs -chown [-R] [OWNER][:[GROUP]] URI [URI ]
 改变文件的拥有者。使用-R将使改变在目录结构下递归进行。命令的使用者必须是超级用户。更多的信息请参见HDFS权限用户指南。
 通过API更改文件权限
+``` scala
 import org.apache.hadoop.conf.Configuration
 import org.apache.hadoop.fs.permission.{FsAction, FsPermission}
 import org.apache.hadoop.fs.{FileSystem, Path}
@@ -33,6 +34,7 @@ val uri = "/data/testFileAuthority/"
 val path = new Path(uri)
 fs.setPermission(path, permission)
 fs.close()
+```
 
 
 API删除文件或路径

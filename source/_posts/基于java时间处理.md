@@ -25,9 +25,6 @@ SimpleDateFormat
 ## 时间戳
 默认时区
 
-$\begin{aligned} f(x)=f\left(x_{0}\right)+f^{\prime}\left(x_{0}\right)\left(x-x_{0}\right)+\frac{f^{\prime}\left(x_{0}\right)}{2 !}\left(x-x_{0}\right)^{2}+\cdots+\\ & \frac{f^{(n)}\left(x_{0}\right)}{n !}\left(x-x_{0}\right)^{n}+R_{n} \end{aligned}$
-
-
 
 
 

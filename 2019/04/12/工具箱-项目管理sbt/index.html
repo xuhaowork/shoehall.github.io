@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+  
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="author" content="shoe hall">
+  
+  
+  <title>工具箱-项目管理sbt | Hexo</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="Hexo, Theme-AD">
+  
+
+  
+  <meta name="description" content="datashoe">
+
+  
+
+  
+    <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.1/dist/av-min.js" async></script>
+  
+
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  
+
+  
+    <script src="//unpkg.com/valine/dist/Valine.min.js" async></script>
+  
+
+  
+
+  <script>
+  // theme-ad's config script
+  // it can be used in every script
+  
+  window.AD_CONFIG = {
+    leancloud: {"appid":"Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz","appkey":"WaR7nrzhliHj9aVwdQzkdlGd","comment":true,"count":true},
+    welcome: {"enable":false,"interval":30},
+    start_time: "2019-04-01",
+    passwords: ["efe07af7441da2b69c4a41e42e73be4db47f66010a56900788a458354a7373ec", ],
+    is_post: true,
+    lock: false,
+    author: "shoe hall",
+    share: {"twitter":true,"facebook":true,"weibo":true,"qq":true,"wechat":true},
+    mathjax: true,
+    page_type: "",
+    root: "/"
+  };
+</script>
+
+  <script src="../../../../vendor/sha256.min.js"></script>
+<script src="../../../../js/auth.js"></script>
+<script src="../../../../js/index.js"></script>
+<script src="../../../../vendor/qrcode.min.js"></script>
+
+  
+    <link rel="icon" href="../../../../images/favicon.ico">
+    <link rel="apple-touch-icon" href="../../../../images/touch-icon.png">
+  
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../../../css/index.css">
+<link rel="stylesheet" href="../../../../styles/components/highlight/highlight.css">
+
+  
+</head>
+  <body>
+    <header class="site-header">
+  <div class="site-header-brand">
+    
+      <span class="site-header-brand-title">
+        <a href="../../../../index.html">shoehall's studio</a>
+      </span>
+    
+    
+      <span class="site-header-brand-motto"> | 远山高大 风雨飘香</span>
+    
+  </div>
+  <div class="site-header-right">
+    <nav class="site-header-navigation">
+      
+        <a href="../../../../index.html" target="_self">首页</a>
+      
+        <a href="../../../../archives/" target="_self">归档</a>
+      
+        <a href="../../../../tags/" target="_self">标签</a>
+      
+        <a href="../../../../categories/" target="_self">分类</a>
+      
+        <a href="../../../../about/" target="_self">关于</a>
+      
+    </nav>
+    <div class="site-header-btn">
+      
+        <a href="https://github.com/datashoe/" target="_blank" id="site-github">
+          <i class="fa fa-github-alt"></i>
+        </a>
+      
+      <a href="javascript:void(0);" id="site-search">
+        <i class="fa fa-search"></i>
+      </a>
+      <a href="javascript:void(0);" id="site-nav-btn">
+        <i class="fa fa-ellipsis-v"></i>
+      </a>
+    </div>
+  </div>
+</header>
+<nav class="table-content" id="site-nav">
+  <div class="table-content-title">
+    <span>导航</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc">
+      
+        <li class="toc-item">
+          <a href="../../../../index.html" target="_self">
+            首页
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="../../../../archives/" target="_self">
+            归档
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="../../../../tags/" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="../../../../categories/" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="../../../../about/" target="_self">
+            关于
+          </a>
+        </li>
+      
+    </ol>
+  </div>
+</nav>
+<div id="site-process"></div>
+    <main>
+      
+  <div class="passage">
+  <div class="passage-meta">
+    <span>
+      <i class="fa fa-calendar"></i>2019-04-12
+    </span>
+    
+    
+      <span>
+        | <i class="fa fa-unlock-alt"></i>UNLOCK
+      </span>
+    
+  </div>
+  <h1 class="passage-title">
+    工具箱-项目管理sbt
+  </h1>
+  
+  <article class="passage-article">
+    <h2 id="工具箱-项目管理之sbt"><a href="#工具箱-项目管理之sbt" class="headerlink" title="工具箱-项目管理之sbt"></a>工具箱-项目管理之sbt</h2><h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p>sbt创建子模块<br><a href="https://alvinalexander.com/scala/how-to-create-sbt-projects-with-subprojects" target="_blank" rel="noopener">https://alvinalexander.com/scala/how-to-create-sbt-projects-with-subprojects</a><br><a href="https://github.com/alvinj/SbtSubProjectsExample" target="_blank" rel="noopener">https://github.com/alvinj/SbtSubProjectsExample</a></p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line">## sbt附带子项目</span><br><span class="line"><span class="type">ThisBuild</span> / version := <span class="string">"0.1"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//scalaVersion := "2.10.4"</span></span><br><span class="line"><span class="type">ThisBuild</span> / scalaVersion := <span class="string">"2.11.8"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//val sparkVersion = "1.5.2"</span></span><br><span class="line"><span class="keyword">val</span> sparkVersion = <span class="string">"2.0.0"</span></span><br><span class="line"><span class="keyword">val</span> log4jVersion = <span class="string">"2.6.1"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">lazy</span> <span class="keyword">val</span> commonSettings = <span class="type">Seq</span>(</span><br><span class="line">    libraryDependencies ++= <span class="type">Seq</span>(</span><br><span class="line">        <span class="string">"org.apache.spark"</span> %% <span class="string">"spark-core"</span> % sparkVersion,</span><br><span class="line">        <span class="string">"org.apache.spark"</span> %% <span class="string">"spark-sql"</span> % sparkVersion,</span><br><span class="line">        <span class="string">"org.apache.spark"</span> %% <span class="string">"spark-mllib"</span> % sparkVersion,</span><br><span class="line"></span><br><span class="line">        <span class="string">"org.deeplearning4j"</span> % <span class="string">"deeplearning4j-core"</span> % <span class="string">"0.8.0"</span>,</span><br><span class="line">        <span class="comment">//"org.deeplearning4j" % "dl4j-spark" % "0.8.0",</span></span><br><span class="line">        <span class="string">"org.nd4j"</span> % <span class="string">"nd4j-native-platform"</span> % <span class="string">"0.8.0"</span>,</span><br><span class="line">        <span class="comment">//"com.github.karlhigley" %% "spark-neighbors" % "0.2.2",</span></span><br><span class="line">        <span class="string">"com.github.haifengl"</span> %% <span class="string">"smile-scala"</span> % <span class="string">"1.3.1"</span>,</span><br><span class="line"></span><br><span class="line">        <span class="string">"org.vegas-viz"</span> %% <span class="string">"vegas"</span> % <span class="string">"0.3.11"</span>,</span><br><span class="line">        <span class="string">"org.vegas-viz"</span> %% <span class="string">"vegas-spark"</span> % <span class="string">"0.3.11"</span>,</span><br><span class="line"></span><br><span class="line">        <span class="string">"com.twelvemonkeys.imageio"</span> % <span class="string">"imageio-core"</span> % <span class="string">"3.3.2"</span>,</span><br><span class="line">        <span class="string">"com.twelvemonkeys.imageio"</span> % <span class="string">"imageio-jpeg"</span> % <span class="string">"3.3.2"</span>,</span><br><span class="line"></span><br><span class="line">        <span class="string">"org.scalanlp"</span> %% <span class="string">"breeze"</span> % <span class="string">"0.11.2"</span>,</span><br><span class="line">        <span class="string">"org.scalanlp"</span> %% <span class="string">"breeze-viz"</span> % <span class="string">"0.11.2"</span>,</span><br><span class="line"></span><br><span class="line">        <span class="string">"org.apache.poi"</span> % <span class="string">"poi"</span> % <span class="string">"3.14"</span>,</span><br><span class="line">        <span class="string">"org.apache.poi"</span> % <span class="string">"poi-ooxml"</span> % <span class="string">"3.14"</span>,</span><br><span class="line">        <span class="string">"org.apache.poi"</span> % <span class="string">"poi-ooxml-schemas"</span> % <span class="string">"3.14"</span>,</span><br><span class="line">        <span class="string">"org.apache.poi"</span> % <span class="string">"poi-scratchpad"</span> % <span class="string">"3.14"</span>,</span><br><span class="line"></span><br><span class="line">        <span class="string">"com.google.code.gson"</span> % <span class="string">"gson"</span> % <span class="string">"2.2.4"</span>,</span><br><span class="line">        <span class="string">"mysql"</span> % <span class="string">"mysql-connector-java"</span> % <span class="string">"5.1.12"</span>,</span><br><span class="line">        <span class="string">"de.lmu.ifi.dbs.elki"</span> % <span class="string">"elki"</span> % <span class="string">"0.7.1"</span>,</span><br><span class="line">        <span class="string">"com.hankcs"</span> % <span class="string">"hanlp"</span> % <span class="string">"portable-1.6.3"</span></span><br><span class="line">        <span class="comment">//"ml.dmlc" % "xgboost4j" % "0.80"</span></span><br><span class="line">    )</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">lazy</span> <span class="keyword">val</span> zzjz = (project in file(<span class="string">"."</span>))</span><br><span class="line">        .aggregate(zzjz_basic, zzjz_utils)</span><br><span class="line">        .dependsOn(zzjz_basic, zzjz_utils)</span><br><span class="line">        .settings(</span><br><span class="line">            name := <span class="string">"zzjz"</span>,</span><br><span class="line">            target := file(<span class="string">"out/"</span> + name.value + <span class="string">"/target"</span>),</span><br><span class="line">            commonSettings,</span><br><span class="line">            update / aggregate := <span class="literal">false</span>,</span><br><span class="line">            unmanagedBase := baseDirectory.value / <span class="string">"libs"</span>,</span><br><span class="line">            <span class="comment">//scalacOptions in ThisBuild ++= List("-Yresolve-term-conflict:package"),</span></span><br><span class="line">            retrieveManaged := <span class="literal">true</span></span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line"><span class="keyword">lazy</span> <span class="keyword">val</span> zzjz_others = (project in file(<span class="string">"zzjz-others"</span>))</span><br><span class="line">        .aggregate(zzjz_basic, zzjz_utils)</span><br><span class="line">        .dependsOn(zzjz_basic, zzjz_utils)</span><br><span class="line">        .settings(</span><br><span class="line">            name := <span class="string">"zzjz-others"</span>,</span><br><span class="line">            target := file(<span class="string">"out/"</span> + name.value + <span class="string">"/target"</span>),</span><br><span class="line">            commonSettings</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line"><span class="keyword">lazy</span> <span class="keyword">val</span> zzjz_basic = (project in file(<span class="string">"zzjz-basic"</span>))</span><br><span class="line">        .settings(</span><br><span class="line">            name := <span class="string">"zzjz-basic"</span>,</span><br><span class="line">            target := file(<span class="string">"out/"</span> + name.value + <span class="string">"/target"</span>),</span><br><span class="line">            commonSettings</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line"><span class="keyword">lazy</span> <span class="keyword">val</span> zzjz_utils = (project in file(<span class="string">"zzjz-utils"</span>))</span><br><span class="line">        .aggregate(zzjz_basic)</span><br><span class="line">        .dependsOn(zzjz_basic)</span><br><span class="line">        .settings(</span><br><span class="line">            name := <span class="string">"zzjz-utils"</span>,</span><br><span class="line">            target := file(<span class="string">"out/"</span> + name.value + <span class="string">"/target"</span>),</span><br><span class="line">            commonSettings</span><br><span class="line">        )</span><br></pre></td></tr></table></figure>
+
+  </article>
+  <aside class="table-content" id="site-toc">
+  <div class="table-content-title">
+    <i class="fa fa-arrow-right fa-lg" id="site-toc-hide-btn"></i>
+    <span>目录</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#工具箱-项目管理之sbt"><span class="toc-text">工具箱-项目管理之sbt</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考文献"><span class="toc-text">参考文献</span></a></li></ol></li></ol>
+  </div>
+</aside>
+  
+    <aside class="passage-copyright">
+      <div>本文作者: datashoe</div>
+      
+        <div>
+          原文链接: 
+          <a href target="_blank">http://yoursite.com/2019/04/12/工具箱-项目管理sbt/</a>
+        </div>
+      
+      <div>
+        版权声明: 本博客所有文章除特别声明外, 均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议. 转载请注明出处!
+      </div>
+    </aside>
+  
+  
+</div>
+
+    </main>
+    
+      
+<div class="site-comment-contanier" data-plateform="leancloud">
+  
+    <p id="site-comment-info">
+      <i class="fa fa-spinner fa-spin"></i> 评论加载中
+    </p>
+    <div id="site-comment"></div>
+  
+</div>
+    
+    <div class="site-footer-wrapper">
+  <footer class="site-footer">
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">主题</h5>
+        
+          <span class="site-footer-item">
+            <a href="https://godbmw.com/" target="_blank">pages主题源自godbmw</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="https://hexo.io/themes/" target="_blank">更多主题</a>
+          </span>
+        
+      </div>
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">博客推荐</h5>
+        
+          <span class="site-footer-item">
+            <a href="http://ruanyifeng.com/" target="_blank">阮一峰的个人网站</a>
+          </span>
+        
+      </div>
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">系列教程</h5>
+        
+          <span class="site-footer-item">
+            <a href="https://godbmw.com/design-patterns/" target="_blank">设计模式手册</a>
+          </span>
+        
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-clock-o"></i> 本站已稳定运行<span id="site-time"></span>
+    </div>
+    
+      <div class="site-footer-info">
+        <i class="fa fa-paw"></i> 您是本站第 <span id="site-count"></span> 位访客
+      </div>
+    
+    
+      <div class="site-footer-info">
+        <i class="fa fa-at"></i> Email: datashoe@126.com
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-copyright"></i> 
+      2019 <a href="https://github.com/dongyuanxin/theme-ad/" target="_blank">Theme-AD</a>.
+      Created by <a href="https://godbmw.com/" target="_blank">GodBMW</a>.
+      All rights reserved.
+    </div>
+  </footer>
+</div>
+    <div id="site-layer" style="display:none;">
+  <div class="site-layer-content">
+    <div class="site-layer-header">
+      <span class="site-layer-header-title" id="site-layer-title"></span>
+      <i class="fa fa-close" id="site-layer-close"></i>
+    </div>
+    <div class="site-layer-body" id="site-layer-container">
+      <div class="site-layer-input" id="site-layer-search" style="display: none;">
+        <input type="text">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="site-layer-reward" id="site-layer-reward" style="display: none;">
+        
+          <div>
+            <img src="../../../../images/wechat.png" alt="WeChat">
+            
+              <p>WeChat</p>
+            
+          </div>
+        
+          <div>
+            <img src="../../../../images/alipay.png" alt="AliPay">
+            
+              <p>AliPay</p>
+            
+          </div>
+        
+      </div>
+      <div id="site-layer-welcome" style="display:none;"></div>
+    </div>
+  </div>
+</div>
+    
+
+<div class="bottom-bar">
+  <div class="bottom-bar-left">
+    <a href="../../13/CDH Installation/" data-enable="true">
+      <i class="fa fa-arrow-left"></i>
+    </a>
+    <a href="../../11/拾遗-scala/" data-enable="true">
+      <i class="fa fa-arrow-right"></i>
+    </a>
+  </div>
+  <div class="bottom-bar-right">
+    <a href="javascript:void(0);" data-enable="true" id="site-toc-show-btn">
+      <i class="fa fa-bars"></i>
+    </a>
+    
+      <a href="#site-comment" data-enable="true">
+        <i class="fa fa-commenting"></i>
+      </a>
+    
+    <a href="javascript:void(0);" id="site-toggle-share-btn">
+      <i class="fa fa-share-alt"></i>
+    </a>
+    <a href="javascript:void(0);" id="site-reward">
+      <i class="fa fa-thumbs-up"></i>
+    </a>
+    <a href="javascript:void(0);" id="back-top-btn">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+</div>
+    <div id="share-btn">
+  
+    <a id="share-btn-twitter" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-twitter"></i>
+    </a>
+  
+  
+    <a id="share-btn-facebook" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-facebook"></i>
+    </a>
+  
+  
+    <a id="share-btn-weibo" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-weibo"></i>
+    </a>
+  
+  
+    <a id="share-btn-qq" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-qq"></i>
+    </a>
+  
+  
+    <a id="share-btn-wechat" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-wechat"></i>
+    </a>
+  
+</div>
+    
+
+
+
+
+
+    
+  </body>
+</html>

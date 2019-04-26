@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+  
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="author" content="shoe hall">
+  
+  
+  <title>Git Pages With Hexo | Hexo</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="管理工具,Git,">
+  
+
+  
+  <meta name="description" content="datashoe">
+
+  
+
+  
+    <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.1/dist/av-min.js" async></script>
+  
+
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  
+
+  
+    <script src="//unpkg.com/valine/dist/Valine.min.js" async></script>
+  
+
+  
+
+  <script>
+  // theme-ad's config script
+  // it can be used in every script
+  
+  window.AD_CONFIG = {
+    leancloud: {"appid":"Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz","appkey":"WaR7nrzhliHj9aVwdQzkdlGd","comment":true,"count":true},
+    welcome: {"enable":false,"interval":30},
+    start_time: "2019-04-01",
+    passwords: ["efe07af7441da2b69c4a41e42e73be4db47f66010a56900788a458354a7373ec", ],
+    is_post: true,
+    lock: false,
+    author: "shoe hall",
+    share: {"twitter":true,"facebook":true,"weibo":true,"qq":true,"wechat":true},
+    mathjax: true,
+    page_type: "",
+    root: "/"
+  };
+</script>
+
+  <script src="../../../../vendor/sha256.min.js"></script>
+<script src="../../../../js/auth.js"></script>
+<script src="../../../../js/index.js"></script>
+<script src="../../../../vendor/qrcode.min.js"></script>
+
+  
+    <link rel="icon" href="../../../../images/favicon.ico">
+    <link rel="apple-touch-icon" href="../../../../images/touch-icon.png">
+  
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../../../css/index.css">
+<link rel="stylesheet" href="../../../../styles/components/highlight/highlight.css">
+
+  
+</head>
+  <body>
+    <header class="site-header">
+  <div class="site-header-brand">
+    
+      <span class="site-header-brand-title">
+        <a href="../../../../index.html">shoehall's studio</a>
+      </span>
+    
+    
+      <span class="site-header-brand-motto"> | 远山高大 风雨飘香</span>
+    
+  </div>
+  <div class="site-header-right">
+    <nav class="site-header-navigation">
+      
+        <a href="../../../../index.html" target="_self">首页</a>
+      
+        <a href="../../../../archives/" target="_self">归档</a>
+      
+        <a href="../../../../tags/" target="_self">标签</a>
+      
+        <a href="../../../../categories/" target="_self">分类</a>
+      
+        <a href="../../../../about/" target="_self">关于</a>
+      
+    </nav>
+    <div class="site-header-btn">
+      
+        <a href="https://github.com/datashoe/" target="_blank" id="site-github">
+          <i class="fa fa-github-alt"></i>
+        </a>
+      
+      <a href="javascript:void(0);" id="site-search">
+        <i class="fa fa-search"></i>
+      </a>
+      <a href="javascript:void(0);" id="site-nav-btn">
+        <i class="fa fa-ellipsis-v"></i>
+      </a>
+    </div>
+  </div>
+</header>
+<nav class="table-content" id="site-nav">
+  <div class="table-content-title">
+    <span>导航</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc">
+      
+        <li class="toc-item">
+          <a href="../../../../index.html" target="_self">
+            首页
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="../../../../archives/" target="_self">
+            归档
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="../../../../tags/" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="../../../../categories/" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="../../../../about/" target="_self">
+            关于
+          </a>
+        </li>
+      
+    </ol>
+  </div>
+</nav>
+<div id="site-process"></div>
+    <main>
+      
+  <div class="passage">
+  <div class="passage-meta">
+    <span>
+      <i class="fa fa-calendar"></i>2019-04-13
+    </span>
+    
+      <span>
+        | <a href="../../../../categories/管理工具/"><i class="fa fa-bookmark"></i>管理工具</a>
+      </span>
+    
+    
+      <span>
+        | <i class="fa fa-unlock-alt"></i>UNLOCK
+      </span>
+    
+  </div>
+  <h1 class="passage-title">
+    Git Pages With Hexo
+  </h1>
+  
+  <article class="passage-article">
+    <h2 id="创建一个自己的Git-Pages"><a href="#创建一个自己的Git-Pages" class="headerlink" title="创建一个自己的Git Pages"></a>创建一个自己的Git Pages</h2><h3 id="1-环境准备"><a href="#1-环境准备" class="headerlink" title="1. 环境准备"></a>1. 环境准备</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 环境: windows7</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 注册github账号</span></span><br><span class="line"><span class="comment"># 安装git(git bash)</span></span><br><span class="line"><span class="comment"># 配置ssh免密远程登录(此处也可省略)</span></span><br><span class="line"><span class="comment"># 需要一个能编辑markdown的文本编辑器(notepad, intellij, VSCode等都可以)</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-安装node-js"><a href="#2-安装node-js" class="headerlink" title="2.安装node js"></a>2.安装node js</h3><p>1) 下载并安装<a href="http://nodejs.org/" target="_blank" rel="noopener">node.js</a><br>2) 安装node js, 注意配置环境变量<br>3) 打开git bash（或cmd）, 查看npm是否起效<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm -v</span><br></pre></td></tr></table></figure></p>
+<p>注意：这里git bash其实充当了bash命令窗口的作用. 下文的操作有些其实用cmd或者手动操作有同样效果.</p>
+<h3 id="3-部署hexo"><a href="#3-部署hexo" class="headerlink" title="3.部署hexo"></a>3.部署hexo</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli <span class="comment"># 安装hexo</span></span><br></pre></td></tr></table></figure>
+<p>有时候国外的cnpm用不了需要换为淘宝云, bash中输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">alias cnpm=&quot;npm --registry=https://registry.npm.taobao.org \</span><br><span class="line">--cache=$HOME/.npm/.cache/cnpm \</span><br><span class="line">--disturl=https://npm.taobao.org/dist \</span><br><span class="line">--userconfig=$HOME/.cnpmrc&quot;</span><br></pre></td></tr></table></figure></p>
+<p>之后用cnpm</p>
+<h3 id="4-创建工作目录"><a href="#4-创建工作目录" class="headerlink" title="4.创建工作目录"></a>4.创建工作目录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># mkdir &lt;your github&gt;.github.io</span></span><br><span class="line"><span class="comment"># cd &lt;your github&gt;.github.io # 保证该目录为空</span></span><br><span class="line"><span class="comment"># hexo init # 初始化hexo, 创建基本的文件（如果是将hexo目录clone或拷贝到本地则不需要该步）</span></span><br></pre></td></tr></table></figure>
+<h3 id="5-npm依赖下载-如果是clone下来的项目则不需要该步"><a href="#5-npm依赖下载-如果是clone下来的项目则不需要该步" class="headerlink" title="5.npm依赖下载(如果是clone下来的项目则不需要该步)"></a>5.npm依赖下载(如果是clone下来的项目则不需要该步)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init <span class="comment"># 可能会有warning, 不管</span></span><br><span class="line">npm install <span class="comment"># 下载依赖, cnpm install试了一下发现不行, 改为npm install可以了</span></span><br><span class="line">npm install --save hexo-deployer-git <span class="comment"># 下载deploy git的支持</span></span><br></pre></td></tr></table></figure>
+<h3 id="6-启动server"><a href="#6-启动server" class="headerlink" title="6.启动server"></a>6.启动server</h3><p>hexo server # 启动hexo服务<br>查看本地pages（<a href="http://localhost:4000/）的编译效果" target="_blank" rel="noopener">http://localhost:4000/）的编译效果</a>, 会生成一个hello-world界面, 里面有一篇hello-world.md文档, 介绍对应的功能.</p>
+<h3 id="7-写文章"><a href="#7-写文章" class="headerlink" title="7.写文章"></a>7.写文章</h3><p>我们看下hello-world的文章结构<br>1）进入source的_posts中<br>2）可以看到hello-world.md的markdown<br>注意由— —包起来的front matter, 其中title为主页中显示的标题, categories和tags分别是分类和标签(这里这两个都是后续加上去的, 原始的没有)<br><img src="2019-04-02-10-12-27.png" alt><br>3）之后是正文内容, 就是一般的markdown语法了</p>
+<p>1)仿照hello-world写一篇文章your page, 可以执行hexo n “your page”, 此时会在posts目录下生成your page.md文件(如果配置资源管理目录的话还会生成同名文件夹)<br>2)hexo generate<br>3)hexo server<br>4)进入”<a href="http://localhost:4000/&quot;查看效果" target="_blank" rel="noopener">http://localhost:4000/&quot;查看效果</a><br>以后步骤大致如上，进行修改后进行本地编译就执行2/3步<br>至此本地搭建的主干功能已经全了, 还有一些功能参考<a href="https://hexo.io/docs" target="_blank" rel="noopener">官方参考文档</a></p>
+<h3 id="8-添加tags-categories-about"><a href="#8-添加tags-categories-about" class="headerlink" title="8.添加tags/categories/about"></a>8.添加tags/categories/about</h3><p>1）生成对应的文件目录<br>添加tags<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page tags</span><br></pre></td></tr></table></figure></p>
+<p>添加categories<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page categories</span><br></pre></td></tr></table></figure></p>
+<p>添加about<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page about</span><br></pre></td></tr></table></figure></p>
+<p>2）更改对应的’index.md’<br>此时source下会生成几个目录<br><img src="2019-04-02-10-32-11.png" alt><br>进入目录打开其中的’index.md’, 将其修改为如下形式:<br><figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: categories</span><br><span class="line">date: 2019-04-01 19:27:10</span><br><span class="line">type: "categories" </span><br><span class="line">---</span><br></pre></td></tr></table></figure></p>
+<p>这里”categories”是以其为例, 其他的名字需要对应为tags和about<br>3)进入文章，给文章添加tag和categories<br><figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: Git Pages With Hexo</span><br><span class="line">categories: </span><br><span class="line">  - 管理工具</span><br><span class="line">tags:</span><br><span class="line">  - Git</span><br><span class="line">---</span><br></pre></td></tr></table></figure></p>
+<h3 id="9-上传图片链接等"><a href="#9-上传图片链接等" class="headerlink" title="9.上传图片链接等"></a>9.上传图片链接等</h3><p>上传图片方式：<br>1.可以传到云端, 以云端地址作为绝对地址访问图片<br>如GeoSpark的logo(<a href="https://raw.githubusercontent.com/DataSystemsLab/GeoSpark/master/GeoSpark_logo.png" target="_blank" rel="noopener">https://raw.githubusercontent.com/DataSystemsLab/GeoSpark/master/GeoSpark_logo.png</a>)<br>将地址写在链接位置<br><figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">GeoSpark</span>](<span class="link">https://raw.githubusercontent.com/DataSystemsLab/GeoSpark/master/GeoSpark_logo.png</span>)</span><br></pre></td></tr></table></figure></p>
+<p>效果如下:<br><img src="https://raw.githubusercontent.com/DataSystemsLab/GeoSpark/master/GeoSpark_logo.png" alt="GeoSpark"><br>该方法的好处是你也可以其他地方用到该图片而不用更改代码(比如csdn/简书等)。</p>
+<p>2.将图片放到本地仓库（当然也要上传的, 不过仅仅放在_post下是不行的）, 添加相对地址<br>1)安装hexo-asset-image<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install https://github.com/CodeFalling/hexo-asset-image --save</span><br></pre></td></tr></table></figure></p>
+<p>注意有可能会有bug，此时/node_modules/hexo-asset-image/index.js替换为如下内容:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"><span class="keyword">var</span> cheerio = <span class="built_in">require</span>(<span class="string">'cheerio'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// http://stackoverflow.com/questions/14480345/how-to-get-the-nth-occurrence-in-a-string</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getPosition</span>(<span class="params">str, m, i</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> str.split(m, i).join(m).length;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> version = <span class="built_in">String</span>(hexo.version).split(<span class="string">'.'</span>);</span><br><span class="line">hexo.extend.filter.register(<span class="string">'after_post_render'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> config = hexo.config;</span><br><span class="line">  <span class="keyword">if</span>(config.post_asset_folder)&#123;</span><br><span class="line">    	<span class="keyword">var</span> link = data.permalink;</span><br><span class="line">	<span class="keyword">if</span>(version.length &gt; <span class="number">0</span> &amp;&amp; <span class="built_in">Number</span>(version[<span class="number">0</span>]) == <span class="number">3</span>)</span><br><span class="line">	   <span class="keyword">var</span> beginPos = getPosition(link, <span class="string">'/'</span>, <span class="number">1</span>) + <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	   <span class="keyword">var</span> beginPos = getPosition(link, <span class="string">'/'</span>, <span class="number">3</span>) + <span class="number">1</span>;</span><br><span class="line">	<span class="comment">// In hexo 3.1.1, the permalink of "about" page is like ".../about/index.html".</span></span><br><span class="line">	<span class="keyword">var</span> endPos = link.lastIndexOf(<span class="string">'/'</span>) + <span class="number">1</span>;</span><br><span class="line">    link = link.substring(beginPos, endPos);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> toprocess = [<span class="string">'excerpt'</span>, <span class="string">'more'</span>, <span class="string">'content'</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; toprocess.length; i++)&#123;</span><br><span class="line">      <span class="keyword">var</span> key = toprocess[i];</span><br><span class="line"> </span><br><span class="line">      <span class="keyword">var</span> $ = cheerio.load(data[key], &#123;</span><br><span class="line">        ignoreWhitespace: <span class="literal">false</span>,</span><br><span class="line">        xmlMode: <span class="literal">false</span>,</span><br><span class="line">        lowerCaseTags: <span class="literal">false</span>,</span><br><span class="line">        decodeEntities: <span class="literal">false</span></span><br><span class="line">      &#125;);</span><br><span class="line"></span><br><span class="line">      $(<span class="string">'img'</span>).each(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">if</span> ($(<span class="keyword">this</span>).attr(<span class="string">'src'</span>))&#123;</span><br><span class="line">			<span class="comment">// For windows style path, we replace '\' to '/'.</span></span><br><span class="line">			<span class="keyword">var</span> src = $(<span class="keyword">this</span>).attr(<span class="string">'src'</span>).replace(<span class="string">'\\'</span>, <span class="string">'/'</span>);</span><br><span class="line">			<span class="keyword">if</span>(!<span class="regexp">/http[s]*.*|\/\/.*/</span>.test(src) &amp;&amp;</span><br><span class="line">			   !<span class="regexp">/^\s*\//</span>.test(src)) &#123;</span><br><span class="line">			  <span class="comment">// For "about" page, the first part of "src" can't be removed.</span></span><br><span class="line">			  <span class="comment">// In addition, to support multi-level local directory.</span></span><br><span class="line">			  <span class="keyword">var</span> linkArray = link.split(<span class="string">'/'</span>).filter(<span class="function"><span class="keyword">function</span>(<span class="params">elem</span>)</span>&#123;</span><br><span class="line">				<span class="keyword">return</span> elem != <span class="string">''</span>;</span><br><span class="line">			  &#125;);</span><br><span class="line">			  <span class="keyword">var</span> srcArray = src.split(<span class="string">'/'</span>).filter(<span class="function"><span class="keyword">function</span>(<span class="params">elem</span>)</span>&#123;</span><br><span class="line">				<span class="keyword">return</span> elem != <span class="string">''</span> &amp;&amp; elem != <span class="string">'.'</span>;</span><br><span class="line">			  &#125;);</span><br><span class="line">			  <span class="keyword">if</span>(srcArray.length &gt; <span class="number">1</span>)</span><br><span class="line">				srcArray.shift();</span><br><span class="line">			  src = srcArray.join(<span class="string">'/'</span>);</span><br><span class="line">			  $(<span class="keyword">this</span>).attr(<span class="string">'src'</span>, config.root + link + src);</span><br><span class="line">			  <span class="built_in">console</span>.info&amp;&amp;<span class="built_in">console</span>.info(<span class="string">"update link as:--&gt;"</span>+config.root + link + src);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="built_in">console</span>.info&amp;&amp;<span class="built_in">console</span>.info(<span class="string">"no src attr, skipped..."</span>);</span><br><span class="line">			<span class="built_in">console</span>.info&amp;&amp;<span class="built_in">console</span>.info($(<span class="keyword">this</span>));</span><br><span class="line">		&#125;</span><br><span class="line">      &#125;);</span><br><span class="line">      data[key] = $.html();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>2)在_config.yml中添加如下内容:<br><figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># Writing</span></span><br><span class="line">post<span class="emphasis">_asset_</span>folder: true # 启动资源管理文件夹</span><br></pre></td></tr></table></figure></p>
+<p>注意如果引用的是theme的yml需要在theme中进行配置。<br>3)通过hexo new \<your pages\>生成新的页面<br>hexo n “hexoImage3”<br>如果上述内容起作用此时在_posts中会生成两个文件一个hexoImage3.md另一个hexoImage3文件夹.<br>4)引用的图片放入生成的文件夹, 并在生成的md文件中加入索引<br><figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![](image.png)</span><br></pre></td></tr></table></figure></your></p>
+<p>注：其他的音频视频mv/mp3等与之类似。</p>
+<h3 id="10-发布到github以及如何多个终端同时开发"><a href="#10-发布到github以及如何多个终端同时开发" class="headerlink" title="10.发布到github以及如何多个终端同时开发"></a>10.发布到github以及如何多个终端同时开发</h3><p>1）通过deploy可以发布pages到github, yml文件中有deploy的github对应仓库信息。<br><figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># Deployment</span></span><br><span class="line"><span class="section">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:&lt;yourname&gt;/&lt;yourname&gt;.github.io.git # 此处应该填自己的github.io仓库, 注意是ssh形式而不是http形式，这样可以直接利用已经配置好的ssh公钥（如果已经配置的话）的免密登陆</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></p>
+<p>2）注意：<em>hexo pages的deploy会有点一般的github repository不一致的地方</em></p>
+<ul>
+<li>deploy只会将生成的public文件夹放到指定的github上(而不是基于仓库中的文件), 会产生本地仓库中的其他文件无法同步到github上的问题。</li>
+<li>解决方式：通过分支管理。构建一个分支hexo管理source文件（只是source）, master分支管理deploy<br>a. 发布到github<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建仓库并进行第一次commit生成master分支</span></span><br><span class="line">git init <span class="comment"># 在该工作空间中创建git本地仓库</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"# shoehall.github.io, source branch: master, deploy branch: hexo"</span> &gt;&gt; README.md</span><br><span class="line">git add README.md <span class="comment"># </span></span><br><span class="line">git commit -m <span class="string">"first commit"</span> <span class="comment"># 第一次commit后master分支才会创建, 此时才能创建hexo分支</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建hexo分支并上传hexo文件</span></span><br><span class="line">git branch hexo  <span class="comment"># 新建hexo分支</span></span><br><span class="line">git checkout hexo  <span class="comment"># 切换到hexo分支上</span></span><br><span class="line">git remote add origin git@github.com:&lt;yourname&gt;/&lt;yourname&gt;.github.io.git  <span class="comment"># 与Github项目连接 这里yourname代表你的昵称</span></span><br><span class="line">git add --all <span class="comment"># 将hexo仓库中的文件add进来</span></span><br><span class="line">git commit -m <span class="string">"hexo分支 hexo仓库文件第一次上传"</span> <span class="comment"># commit</span></span><br><span class="line">git push origin hexo  <span class="comment"># push到Github项目的hexo分支上</span></span><br><span class="line">git push --<span class="built_in">set</span>-upstream origin hexo <span class="comment"># 设置hexo为默认push分支</span></span><br></pre></td></tr></table></figure>
+<p>如果弄好了可以发布<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy <span class="comment"># 此时deploy是发布到master分支下</span></span><br></pre></td></tr></table></figure></p>
+<p>说明：此时hexo对应仓库中除了ignore的文件外的目录, 而master对应deploy后的public目录.</p>
+<p>b. 在其他终端进行首次开发<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 环境准备 安装rpm/git等与前面相同</span></span><br><span class="line"><span class="comment"># clone hexo分支</span></span><br><span class="line">git <span class="built_in">clone</span> -b hexo git@github.com:yourname/yourname.github.io.git <span class="comment"># yourname填入你的github</span></span><br><span class="line"><span class="built_in">cd</span> yourname.github.io <span class="comment"># 进入克隆的目录</span></span><br><span class="line">npm install <span class="comment"># 安装依赖, 由于hexo中包含对应的文件不需要再hexo init</span></span><br><span class="line">hexo new post <span class="string">"new blog name"</span> <span class="comment"># 此处表示进行一些操作, 也可以是其他</span></span><br><span class="line">git add --all</span><br><span class="line">git commit -m <span class="string">"新的操作"</span></span><br><span class="line">git push origin hexo  <span class="comment"># 更新hexo分支</span></span><br><span class="line">hexo deploy <span class="comment"># 发布（到master）</span></span><br></pre></td></tr></table></figure></p>
+<p>c. 多个终端同步开发的流程<br>指进行首次开发之后，每次开发前的应有流程<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git pull origin hexo  <span class="comment"># 先pull完成本地与远端的融合</span></span><br><span class="line">hexo new post <span class="string">" new blog name"</span> <span class="comment"># 进行某些操作</span></span><br><span class="line">git add --all</span><br><span class="line">git commit -m <span class="string">"XX"</span></span><br><span class="line">git push origin hexo</span><br><span class="line">hexo d -g</span><br></pre></td></tr></table></figure></p>
+<p>============================== 分割线 ==============================</p>
+<ul>
+<li>以下内容为个性部分<h3 id="11-更换theme"><a href="#11-更换theme" class="headerlink" title="11.更换theme"></a>11.更换theme</h3>网络上有很多themes<br>1)进入themes文件夹下, 可以看到landscape目录这就是hexo初始化的目录<br>2)进入<a href="https://hexo.io/themes/" target="_blank" rel="noopener">hexo主题页面</a>选择一个主题(注意预览和下面链接的区别), git clone下来, 注意可以修改下原作者一些个性的设置(比如_config.yml中的github链接, 个性介绍等等)<br>3)在_config.yml中更改theme设置, 将landspace改为下载的theme<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: theme-ad</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>注意：更换theme后theme也有yml文件, 其中有一些设置（比如post_asset_folder）, 注意考虑到</p>
+<h3 id="12-markdown-pages的编辑器"><a href="#12-markdown-pages的编辑器" class="headerlink" title="12.markdown/pages的编辑器"></a>12.markdown/pages的编辑器</h3><p>最基本的文本编辑器起始都可以, 感受好一点的是VS Code<br>1)下载VS Code<br>2)安装markdown插件(markdown all in one, markdown PDF, markdown preview enhance), 安装hexo插件(hexo-one, hexopost head generator), 安装截图的粘贴插件(可以直接截图粘贴连接到md)paste image<br><img src="p1.png" alt><br>3)配置下bash为terminal这样不用来回切换目录<br>找到bash的路径（一般为C:\Program Files\Git\bin, 不记得可以去环境变量中找）<br>在setting中设置<br><img src="p2.png" alt><br>其他的几个关于windows的shell也搞搞, 包括workspace settings的<br>ctrl+shift+C看下效果, 这是弹出窗口<br>ctrl + `看下效果这是IDE</p>
+<h3 id="13-绑定自己的域名"><a href="#13-绑定自己的域名" class="headerlink" title="13.绑定自己的域名"></a>13.绑定自己的域名</h3><p>1)首先要由一个自己的域名, 可以去买一个(阿里云, 腾讯云等等之类的, 要实名认证后才能正常使用)， <a href="http://www.yoursite.cn(yoursite为你注册的域名)" target="_blank" rel="noopener">www.yoursite.cn(yoursite为你注册的域名)</a>, 注意等实名认证和审核通过后才能正常使用。状态需要为:审核通过.<br>2)在source目录下创建CNAME文件(无后缀), 在其中输入<a href="http://www.yoursite.cn" target="_blank" rel="noopener">www.yoursite.cn</a><br>3)在github对应仓库的domain中输入<a href="http://www.yoursite.cn" target="_blank" rel="noopener">www.yoursite.cn</a><br>4)进入域名解析的设置（以阿里云为例），新建两个解析：记录类型为CNAME, 记录值为’<a href="http://www.yourname.github.io&#39;，主机记录为@和www。" target="_blank" rel="noopener">www.yourname.github.io&#39;，主机记录为@和www。</a><br><img src="p3.png" alt><br>此处相当于将你的’<a href="http://www.yourname.github.io&#39;绑定到你注册的&#39;www.yoursite.cn&#39;" target="_blank" rel="noopener">www.yourname.github.io&#39;绑定到你注册的&#39;www.yoursite.cn&#39;</a><br>5)发布后，等会查看是否生效</p>
+
+  </article>
+  <aside class="table-content" id="site-toc">
+  <div class="table-content-title">
+    <i class="fa fa-arrow-right fa-lg" id="site-toc-hide-btn"></i>
+    <span>目录</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建一个自己的Git-Pages"><span class="toc-text">创建一个自己的Git Pages</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-环境准备"><span class="toc-text">1. 环境准备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-安装node-js"><span class="toc-text">2.安装node js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-部署hexo"><span class="toc-text">3.部署hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-创建工作目录"><span class="toc-text">4.创建工作目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-npm依赖下载-如果是clone下来的项目则不需要该步"><span class="toc-text">5.npm依赖下载(如果是clone下来的项目则不需要该步)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-启动server"><span class="toc-text">6.启动server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-写文章"><span class="toc-text">7.写文章</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-添加tags-categories-about"><span class="toc-text">8.添加tags/categories/about</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-上传图片链接等"><span class="toc-text">9.上传图片链接等</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-发布到github以及如何多个终端同时开发"><span class="toc-text">10.发布到github以及如何多个终端同时开发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-更换theme"><span class="toc-text">11.更换theme</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-markdown-pages的编辑器"><span class="toc-text">12.markdown/pages的编辑器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13-绑定自己的域名"><span class="toc-text">13.绑定自己的域名</span></a></li></ol></li></ol>
+  </div>
+</aside>
+  
+    <aside class="passage-copyright">
+      <div>本文作者: datashoe</div>
+      
+        <div>
+          原文链接: 
+          <a href target="_blank">http://yoursite.com/2019/04/13/GitPages-with-hexo/</a>
+        </div>
+      
+      <div>
+        版权声明: 本博客所有文章除特别声明外, 均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议. 转载请注明出处!
+      </div>
+    </aside>
+  
+  
+    <div class="passage-tags">
+     
+      <a href="../../../../tags/Git/"><i class="fa fa-tags"></i>Git</a>
+    
+    </div>
+  
+</div>
+
+    </main>
+    
+      
+<div class="site-comment-contanier" data-plateform="leancloud">
+  
+    <p id="site-comment-info">
+      <i class="fa fa-spinner fa-spin"></i> 评论加载中
+    </p>
+    <div id="site-comment"></div>
+  
+</div>
+    
+    <div class="site-footer-wrapper">
+  <footer class="site-footer">
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">主题</h5>
+        
+          <span class="site-footer-item">
+            <a href="https://godbmw.com/" target="_blank">pages主题源自godbmw</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="https://hexo.io/themes/" target="_blank">更多主题</a>
+          </span>
+        
+      </div>
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">博客推荐</h5>
+        
+          <span class="site-footer-item">
+            <a href="http://ruanyifeng.com/" target="_blank">阮一峰的个人网站</a>
+          </span>
+        
+      </div>
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">系列教程</h5>
+        
+          <span class="site-footer-item">
+            <a href="https://godbmw.com/design-patterns/" target="_blank">设计模式手册</a>
+          </span>
+        
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-clock-o"></i> 本站已稳定运行<span id="site-time"></span>
+    </div>
+    
+      <div class="site-footer-info">
+        <i class="fa fa-paw"></i> 您是本站第 <span id="site-count"></span> 位访客
+      </div>
+    
+    
+      <div class="site-footer-info">
+        <i class="fa fa-at"></i> Email: datashoe@126.com
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-copyright"></i> 
+      2019 <a href="https://github.com/dongyuanxin/theme-ad/" target="_blank">Theme-AD</a>.
+      Created by <a href="https://godbmw.com/" target="_blank">GodBMW</a>.
+      All rights reserved.
+    </div>
+  </footer>
+</div>
+    <div id="site-layer" style="display:none;">
+  <div class="site-layer-content">
+    <div class="site-layer-header">
+      <span class="site-layer-header-title" id="site-layer-title"></span>
+      <i class="fa fa-close" id="site-layer-close"></i>
+    </div>
+    <div class="site-layer-body" id="site-layer-container">
+      <div class="site-layer-input" id="site-layer-search" style="display: none;">
+        <input type="text">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="site-layer-reward" id="site-layer-reward" style="display: none;">
+        
+          <div>
+            <img src="../../../../images/wechat.png" alt="WeChat">
+            
+              <p>WeChat</p>
+            
+          </div>
+        
+          <div>
+            <img src="../../../../images/alipay.png" alt="AliPay">
+            
+              <p>AliPay</p>
+            
+          </div>
+        
+      </div>
+      <div id="site-layer-welcome" style="display:none;"></div>
+    </div>
+  </div>
+</div>
+    
+
+<div class="bottom-bar">
+  <div class="bottom-bar-left">
+    <a href="../hello-world/" data-enable="true">
+      <i class="fa fa-arrow-left"></i>
+    </a>
+    <a href="../CDH Installation/" data-enable="true">
+      <i class="fa fa-arrow-right"></i>
+    </a>
+  </div>
+  <div class="bottom-bar-right">
+    <a href="javascript:void(0);" data-enable="true" id="site-toc-show-btn">
+      <i class="fa fa-bars"></i>
+    </a>
+    
+      <a href="#site-comment" data-enable="true">
+        <i class="fa fa-commenting"></i>
+      </a>
+    
+    <a href="javascript:void(0);" id="site-toggle-share-btn">
+      <i class="fa fa-share-alt"></i>
+    </a>
+    <a href="javascript:void(0);" id="site-reward">
+      <i class="fa fa-thumbs-up"></i>
+    </a>
+    <a href="javascript:void(0);" id="back-top-btn">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+</div>
+    <div id="share-btn">
+  
+    <a id="share-btn-twitter" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-twitter"></i>
+    </a>
+  
+  
+    <a id="share-btn-facebook" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-facebook"></i>
+    </a>
+  
+  
+    <a id="share-btn-weibo" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-weibo"></i>
+    </a>
+  
+  
+    <a id="share-btn-qq" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-qq"></i>
+    </a>
+  
+  
+    <a id="share-btn-wechat" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-wechat"></i>
+    </a>
+  
+</div>
+    
+
+
+
+
+
+    
+  </body>
+</html>

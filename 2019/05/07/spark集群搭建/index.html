@@ -6,12 +6,12 @@
   <meta name="author" content="shoe hall">
   
   
-  <title>归档 | 第2页 | Hexo</title>
+  <title>spark集群搭建 | Hexo</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="Hexo, Theme-AD">
+    <meta name="keywords" content="运维,SPAKR,Linux,">
   
 
   
@@ -42,7 +42,7 @@
     welcome: {"enable":false,"interval":30},
     start_time: "2019-04-01",
     passwords: ["efe07af7441da2b69c4a41e42e73be4db47f66010a56900788a458354a7373ec", ],
-    is_post: false,
+    is_post: true,
     lock: false,
     author: "shoe hall",
     share: {"twitter":true,"facebook":true,"weibo":true,"qq":true,"wechat":true},
@@ -52,20 +52,20 @@
   };
 </script>
 
-  <script src="../../../vendor/sha256.min.js"></script>
-<script src="../../../js/auth.js"></script>
-<script src="../../../js/index.js"></script>
-<script src="../../../vendor/qrcode.min.js"></script>
+  <script src="../../../../vendor/sha256.min.js"></script>
+<script src="../../../../js/auth.js"></script>
+<script src="../../../../js/index.js"></script>
+<script src="../../../../vendor/qrcode.min.js"></script>
 
   
-    <link rel="icon" href="../../../images/favicon.ico">
-    <link rel="apple-touch-icon" href="../../../images/touch-icon.png">
+    <link rel="icon" href="../../../../images/favicon.ico">
+    <link rel="apple-touch-icon" href="../../../../images/touch-icon.png">
   
 
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
-  <link rel="stylesheet" href="../../../css/index.css">
-<link rel="stylesheet" href="../../../styles/components/highlight/highlight.css">
+  <link rel="stylesheet" href="../../../../css/index.css">
+<link rel="stylesheet" href="../../../../styles/components/highlight/highlight.css">
 
   
 </head>
@@ -74,7 +74,7 @@
   <div class="site-header-brand">
     
       <span class="site-header-brand-title">
-        <a href="../../../index.html">shoehall's studio</a>
+        <a href="../../../../index.html">shoehall's studio</a>
       </span>
     
     
@@ -84,15 +84,15 @@
   <div class="site-header-right">
     <nav class="site-header-navigation">
       
-        <a href="../../../index.html" target="_self">首页</a>
+        <a href="../../../../index.html" target="_self">首页</a>
       
-        <a href="../../../archives/" target="_self">归档</a>
+        <a href="../../../../archives/" target="_self">归档</a>
       
-        <a href="../../../tags/" target="_self">标签</a>
+        <a href="../../../../tags/" target="_self">标签</a>
       
-        <a href="../../../categories/" target="_self">分类</a>
+        <a href="../../../../categories/" target="_self">分类</a>
       
-        <a href="../../../about/" target="_self">关于</a>
+        <a href="../../../../about/" target="_self">关于</a>
       
     </nav>
     <div class="site-header-btn">
@@ -118,31 +118,31 @@
     <ol class="toc">
       
         <li class="toc-item">
-          <a href="../../../index.html" target="_self">
+          <a href="../../../../index.html" target="_self">
             首页
           </a>
         </li>
       
         <li class="toc-item">
-          <a href="../../../archives/" target="_self">
+          <a href="../../../../archives/" target="_self">
             归档
           </a>
         </li>
       
         <li class="toc-item">
-          <a href="../../../tags/" target="_self">
+          <a href="../../../../tags/" target="_self">
             标签
           </a>
         </li>
       
         <li class="toc-item">
-          <a href="../../../categories/" target="_self">
+          <a href="../../../../categories/" target="_self">
             分类
           </a>
         </li>
       
         <li class="toc-item">
-          <a href="../../../about/" target="_self">
+          <a href="../../../../about/" target="_self">
             关于
           </a>
         </li>
@@ -152,73 +152,82 @@
 </nav>
 <div id="site-process"></div>
     <main>
-      <div class="timeline">
-  <h2 class="timeline-title">归档: 47篇</h2>
+      
+  <div class="passage">
+  <div class="passage-meta">
+    <span>
+      <i class="fa fa-calendar"></i>2019-05-07
+    </span>
+    
+      <span>
+        | <a href="../../../../categories/运维/"><i class="fa fa-bookmark"></i>运维</a>
+      </span>
+    
+    
+      <span>
+        | <i class="fa fa-unlock-alt"></i>UNLOCK
+      </span>
+    
+  </div>
+  <h1 class="passage-title">
+    spark集群搭建
+  </h1>
   
-    
-      <h3 class="timeline-subtitle">2019</h3>
-    
-    <div class="timeline-item">
-      <time>2019-04-13</time>
-      <a target="_self" href="../../../2019/04/13/hello-world/">Hello World</a>
-    </div>
+  <article class="passage-article">
+    <h2 id="spark集群搭建"><a href="#spark集群搭建" class="headerlink" title="spark集群搭建"></a>spark集群搭建</h2><h3 id="基础环境搭建"><a href="#基础环境搭建" class="headerlink" title="基础环境搭建"></a>基础环境搭建</h3><ol>
+<li>安装centos6.8</li>
+<li>配置网络环境</li>
+<li>配置ssh免密登陆</li>
+<li>配置npt服务</li>
+</ol>
+<h3 id="安装hadoop"><a href="#安装hadoop" class="headerlink" title="安装hadoop"></a>安装hadoop</h3><h3 id="安装hive"><a href="#安装hive" class="headerlink" title="安装hive"></a>安装hive</h3><h3 id="安装ZooKeeper"><a href="#安装ZooKeeper" class="headerlink" title="安装ZooKeeper"></a>安装ZooKeeper</h3><h3 id="安装Kafka"><a href="#安装Kafka" class="headerlink" title="安装Kafka"></a>安装Kafka</h3><h3 id="安装spark"><a href="#安装spark" class="headerlink" title="安装spark"></a>安装spark</h3><h3 id="安装spark-1"><a href="#安装spark-1" class="headerlink" title="安装spark"></a>安装spark</h3><p>### </p>
+
+  </article>
+  <aside class="table-content" id="site-toc">
+  <div class="table-content-title">
+    <i class="fa fa-arrow-right fa-lg" id="site-toc-hide-btn"></i>
+    <span>目录</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#spark集群搭建"><span class="toc-text">spark集群搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基础环境搭建"><span class="toc-text">基础环境搭建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装hadoop"><span class="toc-text">安装hadoop</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装hive"><span class="toc-text">安装hive</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装ZooKeeper"><span class="toc-text">安装ZooKeeper</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装Kafka"><span class="toc-text">安装Kafka</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装spark"><span class="toc-text">安装spark</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装spark-1"><span class="toc-text">安装spark</span></a></li></ol></li></ol>
+  </div>
+</aside>
   
-    
-    <div class="timeline-item">
-      <time>2019-04-13</time>
-      <a target="_self" href="../../../2019/04/13/GitPages-with-hexo/">Git Pages With Hexo</a>
-    </div>
+    <aside class="passage-copyright">
+      <div>本文作者: datashoe</div>
+      
+        <div>
+          原文链接: 
+          <a href target="_blank">http://yoursite.com/2019/05/07/spark集群搭建/</a>
+        </div>
+      
+      <div>
+        版权声明: 本博客所有文章除特别声明外, 均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议. 转载请注明出处!
+      </div>
+    </aside>
   
-    
-    <div class="timeline-item">
-      <time>2019-04-13</time>
-      <a target="_self" href="../../../2019/04/13/CDH Installation/">CDH5.14安装————基于centos6.7</a>
-    </div>
   
+    <div class="passage-tags">
+     
+      <a href="../../../../tags/SPAKR/"><i class="fa fa-tags"></i>SPAKR</a>
+     
+      <a href="../../../../tags/Linux/"><i class="fa fa-tags"></i>Linux</a>
     
-    <div class="timeline-item">
-      <time>2019-04-12</time>
-      <a target="_self" href="../../../2019/04/12/工具箱-项目管理sbt/">工具箱-项目管理sbt</a>
-    </div>
-  
-    
-    <div class="timeline-item">
-      <time>2019-04-11</time>
-      <a target="_self" href="../../../2019/04/11/拾遗-scala/">拾遗-scala</a>
-    </div>
-  
-    
-    <div class="timeline-item">
-      <time>2019-04-11</time>
-      <a target="_self" href="../../../2019/04/11/拾遗-R语言/">拾遗-R语言</a>
-    </div>
-  
-    
-    <div class="timeline-item">
-      <time>2019-04-11</time>
-      <a target="_self" href="../../../2019/04/11/结绳记事-redis/">结绳记事-redis</a>
-    </div>
-  
-    
-    <div class="timeline-item">
-      <time>2019-04-11</time>
-      <a target="_self" href="../../../2019/04/11/工具箱-latex/">工具箱-latex</a>
-    </div>
-  
-    
-    <div class="timeline-item">
-      <time>2019-04-11</time>
-      <a target="_self" href="../../../2019/04/11/结绳记事-常用数据源/">结绳记事-常用数据源</a>
-    </div>
-  
-    
-    <div class="timeline-item">
-      <time>2019-04-09</time>
-      <a target="_self" href="../../../2019/04/09/结绳记事-wolframe-mathematica/">结绳记事-wolframe mathematica</a>
     </div>
   
 </div>
+
     </main>
+    
+      
+<div class="site-comment-contanier" data-plateform="leancloud">
+  
+    <p id="site-comment-info">
+      <i class="fa fa-spinner fa-spin"></i> 评论加载中
+    </p>
+    <div id="site-comment"></div>
+  
+</div>
     
     <div class="site-footer-wrapper">
   <footer class="site-footer">
@@ -289,14 +298,14 @@
       <div class="site-layer-reward" id="site-layer-reward" style="display: none;">
         
           <div>
-            <img src="../../../images/wechat.png" alt="WeChat">
+            <img src="../../../../images/wechat.png" alt="WeChat">
             
               <p>WeChat</p>
             
           </div>
         
           <div>
-            <img src="../../../images/alipay.png" alt="AliPay">
+            <img src="../../../../images/alipay.png" alt="AliPay">
             
               <p>AliPay</p>
             
@@ -311,19 +320,19 @@
 
 <div class="bottom-bar">
   <div class="bottom-bar-left">
-    <a href="../../" data-enable="true">
+    <a href="../结绳记事-scala中运用jvm的钩子程序/" data-enable="true">
       <i class="fa fa-arrow-left"></i>
     </a>
-    <a href="../3/" data-enable="true">
+    <a href="../../04/结绳记事-node2vec/" data-enable="true">
       <i class="fa fa-arrow-right"></i>
     </a>
   </div>
   <div class="bottom-bar-right">
-    <a href="javascript:void(0);" data-enable="false" id="site-toc-show-btn">
+    <a href="javascript:void(0);" data-enable="true" id="site-toc-show-btn">
       <i class="fa fa-bars"></i>
     </a>
     
-      <a href="javascript:void(0);" data-enable="false">
+      <a href="#site-comment" data-enable="true">
         <i class="fa fa-commenting"></i>
       </a>
     

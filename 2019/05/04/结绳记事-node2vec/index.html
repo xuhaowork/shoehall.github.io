@@ -6,7 +6,7 @@
   <meta name="author" content="shoe hall">
   
   
-  <title>归档 | 第2页 | Hexo</title>
+  <title>结绳记事-node2vec | Hexo</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -42,7 +42,7 @@
     welcome: {"enable":false,"interval":30},
     start_time: "2019-04-01",
     passwords: ["efe07af7441da2b69c4a41e42e73be4db47f66010a56900788a458354a7373ec", ],
-    is_post: false,
+    is_post: true,
     lock: false,
     author: "shoe hall",
     share: {"twitter":true,"facebook":true,"weibo":true,"qq":true,"wechat":true},
@@ -52,20 +52,20 @@
   };
 </script>
 
-  <script src="../../../vendor/sha256.min.js"></script>
-<script src="../../../js/auth.js"></script>
-<script src="../../../js/index.js"></script>
-<script src="../../../vendor/qrcode.min.js"></script>
+  <script src="../../../../vendor/sha256.min.js"></script>
+<script src="../../../../js/auth.js"></script>
+<script src="../../../../js/index.js"></script>
+<script src="../../../../vendor/qrcode.min.js"></script>
 
   
-    <link rel="icon" href="../../../images/favicon.ico">
-    <link rel="apple-touch-icon" href="../../../images/touch-icon.png">
+    <link rel="icon" href="../../../../images/favicon.ico">
+    <link rel="apple-touch-icon" href="../../../../images/touch-icon.png">
   
 
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
-  <link rel="stylesheet" href="../../../css/index.css">
-<link rel="stylesheet" href="../../../styles/components/highlight/highlight.css">
+  <link rel="stylesheet" href="../../../../css/index.css">
+<link rel="stylesheet" href="../../../../styles/components/highlight/highlight.css">
 
   
 </head>
@@ -74,7 +74,7 @@
   <div class="site-header-brand">
     
       <span class="site-header-brand-title">
-        <a href="../../../index.html">shoehall's studio</a>
+        <a href="../../../../index.html">shoehall's studio</a>
       </span>
     
     
@@ -84,15 +84,15 @@
   <div class="site-header-right">
     <nav class="site-header-navigation">
       
-        <a href="../../../index.html" target="_self">首页</a>
+        <a href="../../../../index.html" target="_self">首页</a>
       
-        <a href="../../../archives/" target="_self">归档</a>
+        <a href="../../../../archives/" target="_self">归档</a>
       
-        <a href="../../../tags/" target="_self">标签</a>
+        <a href="../../../../tags/" target="_self">标签</a>
       
-        <a href="../../../categories/" target="_self">分类</a>
+        <a href="../../../../categories/" target="_self">分类</a>
       
-        <a href="../../../about/" target="_self">关于</a>
+        <a href="../../../../about/" target="_self">关于</a>
       
     </nav>
     <div class="site-header-btn">
@@ -118,31 +118,31 @@
     <ol class="toc">
       
         <li class="toc-item">
-          <a href="../../../index.html" target="_self">
+          <a href="../../../../index.html" target="_self">
             首页
           </a>
         </li>
       
         <li class="toc-item">
-          <a href="../../../archives/" target="_self">
+          <a href="../../../../archives/" target="_self">
             归档
           </a>
         </li>
       
         <li class="toc-item">
-          <a href="../../../tags/" target="_self">
+          <a href="../../../../tags/" target="_self">
             标签
           </a>
         </li>
       
         <li class="toc-item">
-          <a href="../../../categories/" target="_self">
+          <a href="../../../../categories/" target="_self">
             分类
           </a>
         </li>
       
         <li class="toc-item">
-          <a href="../../../about/" target="_self">
+          <a href="../../../../about/" target="_self">
             关于
           </a>
         </li>
@@ -152,73 +152,70 @@
 </nav>
 <div id="site-process"></div>
     <main>
-      <div class="timeline">
-  <h2 class="timeline-title">归档: 47篇</h2>
+      
+  <div class="passage">
+  <div class="passage-meta">
+    <span>
+      <i class="fa fa-calendar"></i>2019-05-04
+    </span>
+    
+    
+      <span>
+        | <i class="fa fa-unlock-alt"></i>UNLOCK
+      </span>
+    
+  </div>
+  <h1 class="passage-title">
+    结绳记事-node2vec
+  </h1>
   
-    
-      <h3 class="timeline-subtitle">2019</h3>
-    
-    <div class="timeline-item">
-      <time>2019-04-13</time>
-      <a target="_self" href="../../../2019/04/13/hello-world/">Hello World</a>
-    </div>
+  <article class="passage-article">
+    <h2 id="结绳记事－node2vec"><a href="#结绳记事－node2vec" class="headerlink" title="结绳记事－node2vec"></a>结绳记事－node2vec</h2><h3 id="参考文献：node2vec-Scalable-Feature-Learning-for-Networks"><a href="#参考文献：node2vec-Scalable-Feature-Learning-for-Networks" class="headerlink" title="参考文献：node2vec: Scalable Feature Learning for Networks"></a>参考文献：node2vec: Scalable Feature Learning for Networks</h3><h3 id="文献阅读"><a href="#文献阅读" class="headerlink" title="文献阅读"></a>文献阅读</h3><p>许多问题都需要对网络节点和边的预测。比如<br>. 社交网络中，预测用户的兴趣；或者在蛋白质网络中预测蛋白质的功能<br>. 预测两节点间是否有边相连，在基因工程中预测基因间的连接或社交网络中识别二人是否是朋友。</p>
+<p>一般处理这种问题需要手工提特征，但是需要domain knowledge和人工，而且没有泛化性。</p>
+<p>另一种方式是通过解一个优化问题学习一个特征表示（如word2vec）。挑战是怎么设目标函数，需要权衡计算复杂度和预测准确率。</p>
+<p>现阶段方式缺少一种能学习可控长度特征的合理的目标函数。传统的PCA，多维缩放等降维方法通过maximize转特征空间后数据的方差，缺点是需要特征值分解，而且得到的样本表示在多种预测任务上的效果还不好。</p>
+<p>所以定义一个目标函数来保存节点的局部邻居结构是一种方法。本论文的目标是提出一个灵活的学习节点表示的算法，既能将属于相同的社区的节点学习得到相近的嵌入；又能对有相似功能的节点（如在社区中的连接结构相似）学得相似的嵌入。</p>
+<p>本文借鉴word2vec提出了node2vec，通过maximize the likelihood of preserving network neighborhoods of nodes in a d-dimensional feature space得到特征表示。利用二阶随机游走产生节点社区。</p>
+<p>很明显，如何定义社区是关键。本文通过定义一系列的（biased）随机游走，探索一个节点的不同社区。这样算法是灵活的，同时参数不是固定的，而且比较好理解并能直到随机游走得到不同的探索网络方式。同时参数可以通过半监督学习得到。（Q：怎么样的随机游走，怎么半监督学习得到参数）</p>
+
+  </article>
+  <aside class="table-content" id="site-toc">
+  <div class="table-content-title">
+    <i class="fa fa-arrow-right fa-lg" id="site-toc-hide-btn"></i>
+    <span>目录</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#结绳记事－node2vec"><span class="toc-text">结绳记事－node2vec</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考文献：node2vec-Scalable-Feature-Learning-for-Networks"><span class="toc-text">参考文献：node2vec: Scalable Feature Learning for Networks</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文献阅读"><span class="toc-text">文献阅读</span></a></li></ol></li></ol>
+  </div>
+</aside>
   
-    
-    <div class="timeline-item">
-      <time>2019-04-13</time>
-      <a target="_self" href="../../../2019/04/13/GitPages-with-hexo/">Git Pages With Hexo</a>
-    </div>
+    <aside class="passage-copyright">
+      <div>本文作者: datashoe</div>
+      
+        <div>
+          原文链接: 
+          <a href target="_blank">http://yoursite.com/2019/05/04/结绳记事-node2vec/</a>
+        </div>
+      
+      <div>
+        版权声明: 本博客所有文章除特别声明外, 均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议. 转载请注明出处!
+      </div>
+    </aside>
   
-    
-    <div class="timeline-item">
-      <time>2019-04-13</time>
-      <a target="_self" href="../../../2019/04/13/CDH Installation/">CDH5.14安装————基于centos6.7</a>
-    </div>
-  
-    
-    <div class="timeline-item">
-      <time>2019-04-12</time>
-      <a target="_self" href="../../../2019/04/12/工具箱-项目管理sbt/">工具箱-项目管理sbt</a>
-    </div>
-  
-    
-    <div class="timeline-item">
-      <time>2019-04-11</time>
-      <a target="_self" href="../../../2019/04/11/拾遗-scala/">拾遗-scala</a>
-    </div>
-  
-    
-    <div class="timeline-item">
-      <time>2019-04-11</time>
-      <a target="_self" href="../../../2019/04/11/拾遗-R语言/">拾遗-R语言</a>
-    </div>
-  
-    
-    <div class="timeline-item">
-      <time>2019-04-11</time>
-      <a target="_self" href="../../../2019/04/11/结绳记事-redis/">结绳记事-redis</a>
-    </div>
-  
-    
-    <div class="timeline-item">
-      <time>2019-04-11</time>
-      <a target="_self" href="../../../2019/04/11/工具箱-latex/">工具箱-latex</a>
-    </div>
-  
-    
-    <div class="timeline-item">
-      <time>2019-04-11</time>
-      <a target="_self" href="../../../2019/04/11/结绳记事-常用数据源/">结绳记事-常用数据源</a>
-    </div>
-  
-    
-    <div class="timeline-item">
-      <time>2019-04-09</time>
-      <a target="_self" href="../../../2019/04/09/结绳记事-wolframe-mathematica/">结绳记事-wolframe mathematica</a>
-    </div>
   
 </div>
+
     </main>
+    
+      
+<div class="site-comment-contanier" data-plateform="leancloud">
+  
+    <p id="site-comment-info">
+      <i class="fa fa-spinner fa-spin"></i> 评论加载中
+    </p>
+    <div id="site-comment"></div>
+  
+</div>
     
     <div class="site-footer-wrapper">
   <footer class="site-footer">
@@ -289,14 +286,14 @@
       <div class="site-layer-reward" id="site-layer-reward" style="display: none;">
         
           <div>
-            <img src="../../../images/wechat.png" alt="WeChat">
+            <img src="../../../../images/wechat.png" alt="WeChat">
             
               <p>WeChat</p>
             
           </div>
         
           <div>
-            <img src="../../../images/alipay.png" alt="AliPay">
+            <img src="../../../../images/alipay.png" alt="AliPay">
             
               <p>AliPay</p>
             
@@ -311,19 +308,19 @@
 
 <div class="bottom-bar">
   <div class="bottom-bar-left">
-    <a href="../../" data-enable="true">
+    <a href="../../07/spark集群搭建/" data-enable="true">
       <i class="fa fa-arrow-left"></i>
     </a>
-    <a href="../3/" data-enable="true">
+    <a href="../结绳记事-信贷风控与机器学习/" data-enable="true">
       <i class="fa fa-arrow-right"></i>
     </a>
   </div>
   <div class="bottom-bar-right">
-    <a href="javascript:void(0);" data-enable="false" id="site-toc-show-btn">
+    <a href="javascript:void(0);" data-enable="true" id="site-toc-show-btn">
       <i class="fa fa-bars"></i>
     </a>
     
-      <a href="javascript:void(0);" data-enable="false">
+      <a href="#site-comment" data-enable="true">
         <i class="fa fa-commenting"></i>
       </a>
     

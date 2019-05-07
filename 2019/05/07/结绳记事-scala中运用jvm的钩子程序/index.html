@@ -6,12 +6,12 @@
   <meta name="author" content="shoe hall">
   
   
-  <title>Spark mapPartition中Iterator的使用技巧 | Hexo</title>
+  <title>结绳记事-scala中运用jvm的钩子程序 | Hexo</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="算法和程序实现,Spark,">
+    <meta name="keywords" content="scala,java,钩子,">
   
 
   
@@ -156,12 +156,8 @@
   <div class="passage">
   <div class="passage-meta">
     <span>
-      <i class="fa fa-calendar"></i>2019-04-02
+      <i class="fa fa-calendar"></i>2019-05-07
     </span>
-    
-      <span>
-        | <a href="../../../../categories/算法和程序实现/"><i class="fa fa-bookmark"></i>算法和程序实现</a>
-      </span>
     
     
       <span>
@@ -170,14 +166,12 @@
     
   </div>
   <h1 class="passage-title">
-    Spark mapPartition中Iterator的使用技巧
+    结绳记事-scala中运用jvm的钩子程序
   </h1>
   
   <article class="passage-article">
-    <h1 id="spark-mapPartition中Iterator的使用技巧"><a href="#spark-mapPartition中Iterator的使用技巧" class="headerlink" title="spark mapPartition中Iterator的使用技巧"></a>spark mapPartition中Iterator的使用技巧</h1><h2 id="1-mapPartition中Iterator的迭代简介"><a href="#1-mapPartition中Iterator的迭代简介" class="headerlink" title="1.mapPartition中Iterator的迭代简介"></a>1.mapPartition中Iterator的迭代简介</h2><p>利用Iterator直接定义一个新的Iterator<br>1)不用转存为数组等结构, 防止数据过大栈溢出<br>2)限制是不适合前后调用跨度特别大的mapPartition函数</p>
-<h2 id="2-示例"><a href="#2-示例" class="headerlink" title="2.示例"></a>2.示例</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">import cn.datashoe.sparkBase.TestSparkAPP</span><br><span class="line">val a = TestSparkAPP.sc.parallelize(1 to 20, 2)</span><br><span class="line"></span><br><span class="line">def diff1(iter: Iterator[Int]): Iterator[Int] = &#123;</span><br><span class="line">  if (iter.isEmpty)</span><br><span class="line">    Iterator[Int]()</span><br><span class="line">  else &#123;</span><br><span class="line">    var value = iter.next()</span><br><span class="line">    new Iterator[Int] &#123;</span><br><span class="line">      def hasNext: Boolean = iter.hasNext</span><br><span class="line"></span><br><span class="line">      def next(): Int = &#123;</span><br><span class="line">        val lastOne = value</span><br><span class="line">        value = iter.next()</span><br><span class="line">        value - lastOne</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line">  * 结果解析</span><br><span class="line">  * ----</span><br><span class="line">  * 第1个分区</span><br><span class="line">  * (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)</span><br><span class="line">  * 结果</span><br><span class="line">  * (1, 1, 1, 1, 1, 1, 1, 1, 1)</span><br><span class="line">  *</span><br><span class="line">  * 第2个分区</span><br><span class="line">  * (11, 12, 13, 14, 15, 16, 17, 18, 19, 20)</span><br><span class="line">  * 结果</span><br><span class="line">  * (1, 1, 1, 1, 1, 1, 1, 1, 1)</span><br><span class="line">  */</span><br><span class="line">println(&quot;原数据&quot;)</span><br><span class="line">a.mapPartitionsWithIndex &#123;</span><br><span class="line">  case (partitionId, iter) =&gt;</span><br><span class="line">    Iterator((partitionId, iter.mkString(&quot;, &quot;)))</span><br><span class="line">&#125;.foreach(println)</span><br><span class="line"></span><br><span class="line">println(&quot;差分后数据&quot;)</span><br><span class="line">a.mapPartitions(diff1).mapPartitionsWithIndex &#123;</span><br><span class="line">  case (partitionId, iter) =&gt;</span><br><span class="line">    Iterator((partitionId, iter.mkString(&quot;, &quot;)))</span><br><span class="line">&#125;.foreach(println)</span><br></pre></td></tr></table></figure>
-<h2 id="3-解析"><a href="#3-解析" class="headerlink" title="3.解析"></a>3.解析</h2><h3 id="1-上述案例没有将数据存入Array或Buffer中-避免了一个分区数据过大时栈溢出"><a href="#1-上述案例没有将数据存入Array或Buffer中-避免了一个分区数据过大时栈溢出" class="headerlink" title="1)上述案例没有将数据存入Array或Buffer中, 避免了一个分区数据过大时栈溢出"></a>1)上述案例没有将数据存入Array或Buffer中, 避免了一个分区数据过大时栈溢出</h3><p>下述代码的问题是toArray时会将所有数据放入一个Array中, 可能放不下, 另外也多一次操作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">def diff2(iter: Iterator[Int]): Iterator[Int] = &#123;</span><br><span class="line">  val arr = iter.toArray</span><br><span class="line">  arr.sliding(2).map &#123;</span><br><span class="line">    s =&gt;</span><br><span class="line">      s(1) - s(0)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="2-上述案例对于一些操作并不是很合适-比如涉及到前后操作的情况"><a href="#2-上述案例对于一些操作并不是很合适-比如涉及到前后操作的情况" class="headerlink" title="2)上述案例对于一些操作并不是很合适, 比如涉及到前后操作的情况"></a>2)上述案例对于一些操作并不是很合适, 比如涉及到前后操作的情况</h3><h3 id="3-场景：一个Iterator进行两次操作"><a href="#3-场景：一个Iterator进行两次操作" class="headerlink" title="3)场景：一个Iterator进行两次操作"></a>3)场景：一个Iterator进行两次操作</h3><p>由于Iterator没法重置因此同一个Iterator是一次性使用完毕的。没法再同一段程序中重复遍历两次。</p>
+    <h2 id="结绳记事-scala中运用jvm的钩子程序"><a href="#结绳记事-scala中运用jvm的钩子程序" class="headerlink" title="结绳记事-scala中运用jvm的钩子程序"></a>结绳记事-scala中运用jvm的钩子程序</h2><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Hold</span>(<span class="params">input: <span class="type">String</span>*</span>) <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">     <span class="keyword">override</span> <span class="function"><span class="keyword">def</span> <span class="title">run</span></span>(): <span class="type">Unit</span> = &#123;</span><br><span class="line">       println(<span class="string">"执行了钩子程序"</span>)</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">val</span> runtime = <span class="type">Runtime</span>.getRuntime</span><br><span class="line">   runtime.addShutdownHook(<span class="keyword">new</span> <span class="type">Hold</span>())</span><br><span class="line"></span><br><span class="line">   println(<span class="string">"开始执行"</span>)</span><br><span class="line">   <span class="keyword">throw</span> <span class="keyword">new</span> <span class="type">Exception</span>(<span class="string">"抛出异常"</span>)</span><br><span class="line"></span><br><span class="line">   <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 钩子执行不了的情况</span></span><br><span class="line"><span class="comment">     * ----</span></span><br><span class="line"><span class="comment">     * 钩子是基于JVM的, 如果一个程序运行过程中导致了JVM挂掉了那么不会出现异常</span></span><br><span class="line"><span class="comment">     * 1)JVM内部发生错误, 可能还没有来得及触发钩子程序, JVM就挂掉了(JVM 发生内部错误, 有没有日志呢?)</span></span><br><span class="line"><span class="comment">     * 2)还有上面我们给出的那个信号表, 如果操作系统发送出上面的信号的话, 同样的, JVM没有执行钩子程序就退出了</span></span><br><span class="line"><span class="comment">     * 3)还有调用Runime.halt()函数也不会执行钩子程序</span></span><br><span class="line"><span class="comment">     */</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">开始执行</span><br><span class="line"></span><br><span class="line">抛出异常</span><br><span class="line">java.lang.Exception: 抛出异常</span><br><span class="line"><span class="comment"># ... ...</span></span><br><span class="line">执行了钩子程序</span><br></pre></td></tr></table></figure>
 
   </article>
   <aside class="table-content" id="site-toc">
@@ -186,7 +180,7 @@
     <span>目录</span>
   </div>
   <div class="table-content-main">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#spark-mapPartition中Iterator的使用技巧"><span class="toc-text">spark mapPartition中Iterator的使用技巧</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-mapPartition中Iterator的迭代简介"><span class="toc-text">1.mapPartition中Iterator的迭代简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-示例"><span class="toc-text">2.示例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-解析"><span class="toc-text">3.解析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-上述案例没有将数据存入Array或Buffer中-避免了一个分区数据过大时栈溢出"><span class="toc-text">1)上述案例没有将数据存入Array或Buffer中, 避免了一个分区数据过大时栈溢出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-上述案例对于一些操作并不是很合适-比如涉及到前后操作的情况"><span class="toc-text">2)上述案例对于一些操作并不是很合适, 比如涉及到前后操作的情况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-场景：一个Iterator进行两次操作"><span class="toc-text">3)场景：一个Iterator进行两次操作</span></a></li></ol></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#结绳记事-scala中运用jvm的钩子程序"><span class="toc-text">结绳记事-scala中运用jvm的钩子程序</span></a></li></ol>
   </div>
 </aside>
   
@@ -195,7 +189,7 @@
       
         <div>
           原文链接: 
-          <a href target="_blank">http://yoursite.com/2019/04/02/iterator/</a>
+          <a href target="_blank">http://yoursite.com/2019/05/07/结绳记事-scala中运用jvm的钩子程序/</a>
         </div>
       
       <div>
@@ -206,7 +200,11 @@
   
     <div class="passage-tags">
      
-      <a href="../../../../tags/Spark/"><i class="fa fa-tags"></i>Spark</a>
+      <a href="../../../../tags/scala/"><i class="fa fa-tags"></i>scala</a>
+     
+      <a href="../../../../tags/java/"><i class="fa fa-tags"></i>java</a>
+     
+      <a href="../../../../tags/钩子/"><i class="fa fa-tags"></i>钩子</a>
     
     </div>
   
@@ -315,10 +313,10 @@
 
 <div class="bottom-bar">
   <div class="bottom-bar-left">
-    <a href="../../08/Andrew-NG-ML-Notes/" data-enable="true">
+    <a href="javascript:void(0);" data-enable="false">
       <i class="fa fa-arrow-left"></i>
     </a>
-    <a href="../spark sort/" data-enable="true">
+    <a href="../spark集群搭建/" data-enable="true">
       <i class="fa fa-arrow-right"></i>
     </a>
   </div>

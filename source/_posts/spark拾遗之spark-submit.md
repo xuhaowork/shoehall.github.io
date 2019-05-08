@@ -23,3 +23,15 @@ spark-shell --jars $(find lib/ -name '*.jar' | xargs echo | tr ' ' ',') --driver
 ```
 
 
+### spark-submit配置参数
+``` bash
+spark-submit \
+--master yarn \
+--driver-memory 1G \
+--executor-memory 1G --num-executors 1 \
+--executor-cores 1 \
+--jars $(find lib/ -name '*.jar' | xargs echo | tr ' ' ',') \
+--class com.sefon.spark.ml.evaluation.RunMain # 还有点问题, 缺resource啥的
+param1 param2 # param1为参数可以省略
+```
+

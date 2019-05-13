@@ -144,3 +144,36 @@ select regexp_replace(new_ff, '([0-9])', '$1 seond : $1') as cc from bb
 |9 seond : 9s|
 +------------+
 ```
+4.rank, dense_rank和row_number标号
+``` scala
+val ScoreDetailDF = sparkSession.createDataFrame(Seq(
+      ("王五", "一年级", 98),
+      ("李四", "一年级", 100),
+      ("小民", "二年级", 90),
+      ("小明", "二年级", 100),
+      ("张三", "一年级", 100),
+      ("小芳", "二年级", 95)
+    )).toDF("name", "grade", "score")
+
+// SparkSQL 方法实现
+ScoreDetailDF.createOrReplaceTempView("scoredetail")
+```
+``` sql
+select * , rank() over (partition by grade order by score desc) as rank, dense_rank() over (partition by grade order by score desc) as dense_rank, row_number() over (partition by grade order by score desc) as row_number from scoredetail
+```
+``` bash
++------+-------+-----+----+----------+----------+
+|name  |  grade|score|rank|dense_rank|row_number|
++------+-------+-----+----+----------+----------+
+|  李四|  一年级|  100|   1|         1|         1|
+|  张三|  一年级|  100|   1|         1|         2|
+|  王五|  一年级|   98|   3|         2|         3|
+|  小明|  二年级|  100|   1|         1|         1|
+|  小芳|  二年级|   95|   2|         2|         2|
+|  小民|  二年级|   90|   3|         3|         3|
++------+-------+-----+----+----------+----------+
+```
+5.select语句创建测试数据
+
+
+

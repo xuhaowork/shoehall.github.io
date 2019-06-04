@@ -6,7 +6,7 @@
   <meta name="author" content="shoe hall">
   
   
-  <title>归档: 2019 | 第4页 | Hexo</title>
+  <title>DBSCAN算法及其并行化实现 | Hexo</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -42,7 +42,7 @@
     welcome: {"enable":false,"interval":30},
     start_time: "2019-04-01",
     passwords: ["efe07af7441da2b69c4a41e42e73be4db47f66010a56900788a458354a7373ec", ],
-    is_post: false,
+    is_post: true,
     lock: false,
     author: "shoe hall",
     share: {"twitter":true,"facebook":true,"weibo":true,"qq":true,"wechat":true},
@@ -152,73 +152,68 @@
 </nav>
 <div id="site-process"></div>
     <main>
-      <div class="timeline">
-  <h2 class="timeline-title">归档: 52篇</h2>
+      
+  <div class="passage">
+  <div class="passage-meta">
+    <span>
+      <i class="fa fa-calendar"></i>2019-05-29
+    </span>
+    
+    
+      <span>
+        | <i class="fa fa-unlock-alt"></i>UNLOCK
+      </span>
+    
+  </div>
+  <h1 class="passage-title">
+    DBSCAN算法及其并行化实现
+  </h1>
   
-    
-      <h3 class="timeline-subtitle">2019</h3>
-    
-    <div class="timeline-item">
-      <time>2019-04-09</time>
-      <a target="_self" href="../../../../2019/04/09/工具箱-mathpix-snipping/">工具箱-mathpix snipping</a>
-    </div>
+  <article class="passage-article">
+    <h2 id="DBSCAN算法及其并行化实现"><a href="#DBSCAN算法及其并行化实现" class="headerlink" title="DBSCAN算法及其并行化实现"></a>DBSCAN算法及其并行化实现</h2><p>###1.目录<br>1)目录<br>2)DBSCAN算法<br>3)DBSCAN算法的特性<br>4)DBSCAN算法延伸<br>一般DBSCAN的实现<br>kd树, BBD树, r树<br>5)DBSCAN并行化(MR框架)<br>6)一款综合性的DBSCAN算法</p>
+<p>###2.DBSCAN算法<br>DBSCAN算法是最著名的基于密度的聚类算法</p>
+<p>###3.DBSCAN算法的特性<br>1)对输入数据的顺序不敏感<br>2)可以识别任意形状的数据<br>3)可以识别离群点<br>缺点:<br>1)参数敏感<br>2)不同密度的类簇</p>
+<p>###4.DBSCAN算法延伸</p>
+<p>###5.DBSCAN算法并行化<br>目前已经实现的:<br><a href="https://github.com/alitouka/spark_dbscan" target="_blank" rel="noopener">https://github.com/alitouka/spark_dbscan</a><br>MRDBSCAN-FCS-Feb.2014.pdf</p>
+
+  </article>
+  <aside class="table-content" id="site-toc">
+  <div class="table-content-title">
+    <i class="fa fa-arrow-right fa-lg" id="site-toc-hide-btn"></i>
+    <span>目录</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#DBSCAN算法及其并行化实现"><span class="toc-text">DBSCAN算法及其并行化实现</span></a></li></ol>
+  </div>
+</aside>
   
-    
-    <div class="timeline-item">
-      <time>2019-04-09</time>
-      <a target="_self" href="../../../../2019/04/09/基于java时间处理/">基于java时间处理</a>
-    </div>
+    <aside class="passage-copyright">
+      <div>本文作者: datashoe</div>
+      
+        <div>
+          原文链接: 
+          <a href target="_blank">http://yoursite.com/2019/05/29/DBSCAN算法及其并行化实现/</a>
+        </div>
+      
+      <div>
+        版权声明: 本博客所有文章除特别声明外, 均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议. 转载请注明出处!
+      </div>
+    </aside>
   
-    
-    <div class="timeline-item">
-      <time>2019-04-09</time>
-      <a target="_self" href="../../../../2019/04/09/结绳记事-java编程/">结绳记事-java编程</a>
-    </div>
-  
-    
-    <div class="timeline-item">
-      <time>2019-04-08</time>
-      <a target="_self" href="../../../../2019/04/08/星环产品的试用/">星环产品的试用</a>
-    </div>
-  
-    
-    <div class="timeline-item">
-      <time>2019-04-08</time>
-      <a target="_self" href="../../../../2019/04/08/基于SVD的异常检测/">基于SVD的异常检测</a>
-    </div>
-  
-    
-    <div class="timeline-item">
-      <time>2019-04-08</time>
-      <a target="_self" href="../../../../2019/04/08/结绳记事-自然语言处理/">结绳记事: 自然语言处理</a>
-    </div>
-  
-    
-    <div class="timeline-item">
-      <time>2019-04-08</time>
-      <a target="_self" href="../../../../2019/04/08/牛顿法最优化/">牛顿法最优化</a>
-    </div>
-  
-    
-    <div class="timeline-item">
-      <time>2019-04-08</time>
-      <a target="_self" href="../../../../2019/04/08/fast-ICA及其实现/">fast ICA及其实现</a>
-    </div>
-  
-    
-    <div class="timeline-item">
-      <time>2019-04-08</time>
-      <a target="_self" href="../../../../2019/04/08/结绳记事-hdfs文件管理系统/">结绳记事: hdfs文件管理系统</a>
-    </div>
-  
-    
-    <div class="timeline-item">
-      <time>2019-04-08</time>
-      <a target="_self" href="../../../../2019/04/08/结绳记事-hadoop生态圈数据仓库设计/">结绳记事: hadoop生态圈数据仓库设计</a>
-    </div>
   
 </div>
+
     </main>
+    
+      
+<div class="site-comment-contanier" data-plateform="leancloud">
+  
+    <p id="site-comment-info">
+      <i class="fa fa-spinner fa-spin"></i> 评论加载中
+    </p>
+    <div id="site-comment"></div>
+  
+</div>
     
     <div class="site-footer-wrapper">
   <footer class="site-footer">
@@ -311,19 +306,19 @@
 
 <div class="bottom-bar">
   <div class="bottom-bar-left">
-    <a href="../3/" data-enable="true">
+    <a href="../../../06/02/资料库-城市计算/" data-enable="true">
       <i class="fa fa-arrow-left"></i>
     </a>
-    <a href="../5/" data-enable="true">
+    <a href="../../27/结绳记事-时间序列挖掘的一些思考/" data-enable="true">
       <i class="fa fa-arrow-right"></i>
     </a>
   </div>
   <div class="bottom-bar-right">
-    <a href="javascript:void(0);" data-enable="false" id="site-toc-show-btn">
+    <a href="javascript:void(0);" data-enable="true" id="site-toc-show-btn">
       <i class="fa fa-bars"></i>
     </a>
     
-      <a href="javascript:void(0);" data-enable="false">
+      <a href="#site-comment" data-enable="true">
         <i class="fa fa-commenting"></i>
       </a>
     

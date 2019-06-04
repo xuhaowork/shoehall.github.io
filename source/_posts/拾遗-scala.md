@@ -676,3 +676,15 @@ Error:(23, 32) overriding variable name in class ColumnInfo of type String;
 variable name cannot override a mutable variable
 class TimeColInfo(override var name: String,
 ```
+
+
+scala类型匹配match
+```scala
+val args = $(inputCols).map { c =>
+  schema(c).dataType match {
+    case DoubleType => dataset(c)
+    case _: VectorUDT => dataset(c)
+    case _: NumericType | BooleanType => dataset(c).cast(DoubleType).as(s"${c}_double_$uid")
+  }
+}
+```

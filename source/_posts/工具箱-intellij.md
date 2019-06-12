@@ -11,3 +11,6 @@ tags:
 ![](2019-04-26-16-09-55.png)
 
 ### 打开了一个基于maven的项目，发现dependencies是正常的，按代码中标红 => 检查是否目录mark as source
+
+
+### 一个原本不是maven的项目打开后，无法识别pom文件 => 右击pom => add as maven project

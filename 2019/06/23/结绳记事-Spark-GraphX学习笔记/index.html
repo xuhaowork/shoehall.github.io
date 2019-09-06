@@ -6,7 +6,7 @@
   <meta name="author" content="shoe hall">
   
   
-  <title>归档: 2019 | 第5页 | Hexo</title>
+  <title>结绳记事-Spark GraphX学习笔记 | Hexo</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -42,7 +42,7 @@
     welcome: {"enable":false,"interval":30},
     start_time: "2019-04-01",
     passwords: ["efe07af7441da2b69c4a41e42e73be4db47f66010a56900788a458354a7373ec", ],
-    is_post: false,
+    is_post: true,
     lock: false,
     author: "shoe hall",
     share: {"twitter":true,"facebook":true,"weibo":true,"qq":true,"wechat":true},
@@ -152,73 +152,76 @@
 </nav>
 <div id="site-process"></div>
     <main>
-      <div class="timeline">
-  <h2 class="timeline-title">归档: 64篇</h2>
+      
+  <div class="passage">
+  <div class="passage-meta">
+    <span>
+      <i class="fa fa-calendar"></i>2019-06-23
+    </span>
+    
+    
+      <span>
+        | <i class="fa fa-unlock-alt"></i>UNLOCK
+      </span>
+    
+  </div>
+  <h1 class="passage-title">
+    结绳记事-Spark GraphX学习笔记
+  </h1>
   
-    
-      <h3 class="timeline-subtitle">2019</h3>
-    
-    <div class="timeline-item">
-      <time>2019-04-09</time>
-      <a target="_self" href="../../../../2019/04/09/工具箱-uTools/">工具箱-uTools</a>
-    </div>
+  <article class="passage-article">
+    <h2 id="Spark-GraphX学习笔记"><a href="#Spark-GraphX学习笔记" class="headerlink" title="Spark GraphX学习笔记"></a>Spark GraphX学习笔记</h2><p>通过Spark GraphX进行图学习, 发现自己在图以及图应用领域知识太匮乏了, 忍不住做一下笔记以便后面可以发散整理.</p>
+<h3 id="知识图谱"><a href="#知识图谱" class="headerlink" title="知识图谱"></a>知识图谱</h3><ul>
+<li>kitchen sink图尝试编码人类所有的知识图谱</li>
+<li>Cyc知识库 OpenCYC</li>
+<li>YAGO多语言知识库（包含中文）<br>OpenKG收集和整理国内国外重要的开放知识库和知识图谱项目，并组织整理相关的中文资料免费对外开放。</li>
+</ul>
+<p>YAGO是由德国马普研究所研制的链接数据库。YAGO主要集成了Wikipedia、WordNet和GeoNames三个来源的数据。YAGO将WordNet的词汇定义与Wikipedia的分类体系进行了融合集成，使得YAGO具有更加丰富的实体分类体系。YAGO还考虑了时间和空间知识，为很多知识条目增加了时间和空间维度的属性描述。目前，YAGO包含1.2亿条三元组知识。YAGO是IBM Watson的后端知识库之一</p>
+<h3 id="为什么要图数据库或者图计算"><a href="#为什么要图数据库或者图计算" class="headerlink" title="为什么要图数据库或者图计算"></a>为什么要图数据库或者图计算</h3><p>普通关系型数据库的不足<br>1）朋友圈发一条消息给所有朋友的朋友<br>2）采用Kevin Bacon六度模式，Google任何人和Kevin Bacon的联系</p>
+<h3 id="可以通过图结构表示的数据"><a href="#可以通过图结构表示的数据" class="headerlink" title="可以通过图结构表示的数据"></a>可以通过图结构表示的数据</h3><p>1）networks<br>2）tree（树其实是无环图）<br>3）RDBMS<br>4）邻接稀疏矩阵<br>5）kitchen sink</p>
+<h3 id="自然图的一些规律"><a href="#自然图的一些规律" class="headerlink" title="自然图的一些规律"></a>自然图的一些规律</h3><p>1）图的度遵循幂律</p>
+<h3 id="图数据库和图处理系统"><a href="#图数据库和图处理系统" class="headerlink" title="图数据库和图处理系统"></a>图数据库和图处理系统</h3><p>1）图数据库：提供数据库事务、查询语言、简单的增量更新和持久化<br>2）图处理系统（GraphX）：分布式内存处理、快速、长时间的独立运算。而基于Pregel的图处理系统在查询顶点和边表现很差，但在执行 PageRank 这类大规模并行算法方面表现很好<br>3）图数据库：Neo4j、Titan、Oracle Spatial、Graph</p>
+<h3 id="关于GraphX"><a href="#关于GraphX" class="headerlink" title="关于GraphX"></a>关于GraphX</h3><p>1）Apache Giraph，基于MR<br>2）GraphLab、GraphX和Apache Giraph各自独立实现了 Google Pregel<br>3）图算法：PageRank、推荐系统、最短路径、社区发现等</p>
+<h3 id="图理论的基础知识"><a href="#图理论的基础知识" class="headerlink" title="图理论的基础知识"></a>图理论的基础知识</h3><p>1）有向图和无向图<br>2）有环图和无环图<br>3）平行边<br>4）自环<br>5）GraphX是伪图，可能存在平行边或自环，这两种情况需要通过groupEdges和subgraph操作来排除<br>6）二分图，源顶点和目标顶点来自不同的集合，两个集合内部不存在相连的边<br>7）RDF图和属性图<br>8）图查询系统：SPARQL（是W3C推出的图查询语句，和SPARK没关系不要误解了）”/Cypher/Tinkerpop Gremlin/GraphX”</p>
+
+  </article>
+  <aside class="table-content" id="site-toc">
+  <div class="table-content-title">
+    <i class="fa fa-arrow-right fa-lg" id="site-toc-hide-btn"></i>
+    <span>目录</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Spark-GraphX学习笔记"><span class="toc-text">Spark GraphX学习笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#知识图谱"><span class="toc-text">知识图谱</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么要图数据库或者图计算"><span class="toc-text">为什么要图数据库或者图计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#可以通过图结构表示的数据"><span class="toc-text">可以通过图结构表示的数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自然图的一些规律"><span class="toc-text">自然图的一些规律</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#图数据库和图处理系统"><span class="toc-text">图数据库和图处理系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关于GraphX"><span class="toc-text">关于GraphX</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#图理论的基础知识"><span class="toc-text">图理论的基础知识</span></a></li></ol></li></ol>
+  </div>
+</aside>
   
-    
-    <div class="timeline-item">
-      <time>2019-04-09</time>
-      <a target="_self" href="../../../../2019/04/09/工具箱-word中使用TeXsword插入latex公式/">工具箱-word中使用TeXsword插入latex公式</a>
-    </div>
+    <aside class="passage-copyright">
+      <div>本文作者: datashoe</div>
+      
+        <div>
+          原文链接: 
+          <a href target="_blank">http://yoursite.com/2019/06/23/结绳记事-Spark-GraphX学习笔记/</a>
+        </div>
+      
+      <div>
+        版权声明: 本博客所有文章除特别声明外, 均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议. 转载请注明出处!
+      </div>
+    </aside>
   
-    
-    <div class="timeline-item">
-      <time>2019-04-09</time>
-      <a target="_self" href="../../../../2019/04/09/工具箱-mathpix-snipping/">工具箱-mathpix snipping</a>
-    </div>
-  
-    
-    <div class="timeline-item">
-      <time>2019-04-09</time>
-      <a target="_self" href="../../../../2019/04/09/基于java时间处理/">基于java时间处理</a>
-    </div>
-  
-    
-    <div class="timeline-item">
-      <time>2019-04-09</time>
-      <a target="_self" href="../../../../2019/04/09/结绳记事-java编程/">结绳记事-java编程</a>
-    </div>
-  
-    
-    <div class="timeline-item">
-      <time>2019-04-08</time>
-      <a target="_self" href="../../../../2019/04/08/星环产品的试用/">星环产品的试用</a>
-    </div>
-  
-    
-    <div class="timeline-item">
-      <time>2019-04-08</time>
-      <a target="_self" href="../../../../2019/04/08/基于SVD的异常检测/">基于SVD的异常检测</a>
-    </div>
-  
-    
-    <div class="timeline-item">
-      <time>2019-04-08</time>
-      <a target="_self" href="../../../../2019/04/08/结绳记事-自然语言处理/">结绳记事: 自然语言处理</a>
-    </div>
-  
-    
-    <div class="timeline-item">
-      <time>2019-04-08</time>
-      <a target="_self" href="../../../../2019/04/08/牛顿法最优化/">牛顿法最优化</a>
-    </div>
-  
-    
-    <div class="timeline-item">
-      <time>2019-04-08</time>
-      <a target="_self" href="../../../../2019/04/08/fast-ICA及其实现/">fast ICA及其实现</a>
-    </div>
   
 </div>
+
     </main>
+    
+      
+<div class="site-comment-contanier" data-plateform="leancloud">
+  
+    <p id="site-comment-info">
+      <i class="fa fa-spinner fa-spin"></i> 评论加载中
+    </p>
+    <div id="site-comment"></div>
+  
+</div>
     
     <div class="site-footer-wrapper">
   <footer class="site-footer">
@@ -311,19 +314,19 @@
 
 <div class="bottom-bar">
   <div class="bottom-bar-left">
-    <a href="../4/" data-enable="true">
+    <a href="../../../07/02/结绳记事-类的比较算法/" data-enable="true">
       <i class="fa fa-arrow-left"></i>
     </a>
-    <a href="../6/" data-enable="true">
+    <a href="../../20/漫谈-spark-lazy模式-闭包-可变变量编程要避开的一些坑/" data-enable="true">
       <i class="fa fa-arrow-right"></i>
     </a>
   </div>
   <div class="bottom-bar-right">
-    <a href="javascript:void(0);" data-enable="false" id="site-toc-show-btn">
+    <a href="javascript:void(0);" data-enable="true" id="site-toc-show-btn">
       <i class="fa fa-bars"></i>
     </a>
     
-      <a href="javascript:void(0);" data-enable="false">
+      <a href="#site-comment" data-enable="true">
         <i class="fa fa-commenting"></i>
       </a>
     

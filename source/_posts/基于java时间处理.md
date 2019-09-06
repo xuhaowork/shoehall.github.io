@@ -37,8 +37,9 @@ Joda
 datetime.datetime
 dateutil
 
-
-
+参考资料
+https://savvytime.com/converter/gmt-to-bst
+https://www.w3.org/TR/NOTE-datetime
 
 
 

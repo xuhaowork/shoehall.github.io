@@ -2,9 +2,6 @@
 title: 结绳记事-Spark GraphX学习笔记
 date: 2019-06-23 18:34:58
 tags:
--Spark
--GraphX
--图
 ---
 
 ## Spark GraphX学习笔记
@@ -53,5 +50,5 @@ YAGO是由德国马普研究所研制的链接数据库。YAGO主要集成了Wik
 5）GraphX是伪图，可能存在平行边或自环，这两种情况需要通过groupEdges和subgraph操作来排除
 6）二分图，源顶点和目标顶点来自不同的集合，两个集合内部不存在相连的边
 7）RDF图和属性图
-8）图查询系统：SPARQL（是W3C推出的图查询语句，和SPARK没关系不要误解了）/Cypher/Tinkerpop Gremlin/GraphX 
+8）图查询系统：SPARQL（是W3C推出的图查询语句，和SPARK没关系不要误解了）"/Cypher/Tinkerpop Gremlin/GraphX"
 

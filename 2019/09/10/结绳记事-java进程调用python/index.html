@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+  
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="author" content="shoe hall">
+  
+  
+  <title>结绳记事-java进程调用python | Hexo</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="Hexo, Theme-AD">
+  
+
+  
+  <meta name="description" content="datashoe">
+
+  
+
+  
+    <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.1/dist/av-min.js" async></script>
+  
+
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  
+
+  
+    <script src="//unpkg.com/valine/dist/Valine.min.js" async></script>
+  
+
+  
+
+  <script>
+  // theme-ad's config script
+  // it can be used in every script
+  
+  window.AD_CONFIG = {
+    leancloud: {"appid":"Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz","appkey":"WaR7nrzhliHj9aVwdQzkdlGd","comment":true,"count":true},
+    welcome: {"enable":false,"interval":30},
+    start_time: "2019-04-01",
+    passwords: ["efe07af7441da2b69c4a41e42e73be4db47f66010a56900788a458354a7373ec", ],
+    is_post: true,
+    lock: false,
+    author: "shoe hall",
+    share: {"twitter":true,"facebook":true,"weibo":true,"qq":true,"wechat":true},
+    mathjax: true,
+    page_type: "",
+    root: "/"
+  };
+</script>
+
+  <script src="../../../../vendor/sha256.min.js"></script>
+<script src="../../../../js/auth.js"></script>
+<script src="../../../../js/index.js"></script>
+<script src="../../../../vendor/qrcode.min.js"></script>
+
+  
+    <link rel="icon" href="../../../../images/favicon.ico">
+    <link rel="apple-touch-icon" href="../../../../images/touch-icon.png">
+  
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../../../css/index.css">
+<link rel="stylesheet" href="../../../../styles/components/highlight/highlight.css">
+
+  
+</head>
+  <body>
+    <header class="site-header">
+  <div class="site-header-brand">
+    
+      <span class="site-header-brand-title">
+        <a href="../../../../index.html">shoehall's studio</a>
+      </span>
+    
+    
+      <span class="site-header-brand-motto"> | 远山高大 风雨飘香</span>
+    
+  </div>
+  <div class="site-header-right">
+    <nav class="site-header-navigation">
+      
+        <a href="../../../../index.html" target="_self">首页</a>
+      
+        <a href="../../../../archives/" target="_self">归档</a>
+      
+        <a href="../../../../tags/" target="_self">标签</a>
+      
+        <a href="../../../../categories/" target="_self">分类</a>
+      
+        <a href="../../../../about/" target="_self">关于</a>
+      
+    </nav>
+    <div class="site-header-btn">
+      
+        <a href="https://github.com/datashoe/" target="_blank" id="site-github">
+          <i class="fa fa-github-alt"></i>
+        </a>
+      
+      <a href="javascript:void(0);" id="site-search">
+        <i class="fa fa-search"></i>
+      </a>
+      <a href="javascript:void(0);" id="site-nav-btn">
+        <i class="fa fa-ellipsis-v"></i>
+      </a>
+    </div>
+  </div>
+</header>
+<nav class="table-content" id="site-nav">
+  <div class="table-content-title">
+    <span>导航</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc">
+      
+        <li class="toc-item">
+          <a href="../../../../index.html" target="_self">
+            首页
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="../../../../archives/" target="_self">
+            归档
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="../../../../tags/" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="../../../../categories/" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="../../../../about/" target="_self">
+            关于
+          </a>
+        </li>
+      
+    </ol>
+  </div>
+</nav>
+<div id="site-process"></div>
+    <main>
+      
+  <div class="passage">
+  <div class="passage-meta">
+    <span>
+      <i class="fa fa-calendar"></i>2019-09-10
+    </span>
+    
+    
+      <span>
+        | <i class="fa fa-unlock-alt"></i>UNLOCK
+      </span>
+    
+  </div>
+  <h1 class="passage-title">
+    结绳记事-java进程调用python
+  </h1>
+  
+  <article class="passage-article">
+    <h2 id="结绳记事-java进程调用python"><a href="#结绳记事-java进程调用python" class="headerlink" title="结绳记事-java进程调用python"></a>结绳记事-java进程调用python</h2><h3 id="java进程调用python"><a href="#java进程调用python" class="headerlink" title="java进程调用python"></a>java进程调用python</h3><p>1)数据通过IO形式传输, 或者通过socket、rabitMQ也可，其实py4j和Jython就是这样的。<br>不过根据经验大量数据时还是尽量通过文件IO，注意删除临时文件夹即可<br>2)通过进程调用命令行执行</p>
+<h3 id="scala-java到文件"><a href="#scala-java到文件" class="headerlink" title="scala/java到文件"></a>scala/java到文件</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * scala端文件IO规则</span></span><br><span class="line"><span class="comment">  * ----</span></span><br><span class="line"><span class="comment">  * scala/java类型 =&gt; field</span></span><br><span class="line"><span class="comment">  * ----</span></span><br><span class="line"><span class="comment">  * Boolean(scala|java) =&gt; boolean</span></span><br><span class="line"><span class="comment">  * Byte(scala|java) =&gt; byte</span></span><br><span class="line"><span class="comment">  * Short(scala|java) =&gt; short</span></span><br><span class="line"><span class="comment">  * Int(scala|java) =&gt; int</span></span><br><span class="line"><span class="comment">  * Integer(java) =&gt; integer</span></span><br><span class="line"><span class="comment">  * Long(scala|java) =&gt; long</span></span><br><span class="line"><span class="comment">  * Float(scala|java) =&gt; float</span></span><br><span class="line"><span class="comment">  * Double(scala|java) =&gt; double</span></span><br><span class="line"><span class="comment">  * BigDecimal(scala) =&gt; bigdecimal</span></span><br><span class="line"><span class="comment">  * BigDecimal(java) =&gt; java.math.bigdecimal</span></span><br><span class="line"><span class="comment">  * String(scala|java) =&gt; string</span></span><br><span class="line"><span class="comment">  * java.sql.Date(java) =&gt; date</span></span><br><span class="line"><span class="comment">  * java.sql.Timestamp(java) =&gt; timestamp</span></span><br><span class="line"><span class="comment">  *</span></span><br><span class="line"><span class="comment">  * scala端写入规则</span></span><br><span class="line"><span class="comment">  * ----</span></span><br><span class="line"><span class="comment">  * 1)boolean | byte | short | int | integer | long |</span></span><br><span class="line"><span class="comment">  * float | double | bigdecimal | java.math.bigdecimal | string</span></span><br><span class="line"><span class="comment">  * 直接写就可以了</span></span><br><span class="line"><span class="comment">  * 2)Date | Timestamp以yyyy-MM-dd HH:mm:ss.SSS形式转为字符串写入</span></span><br><span class="line"><span class="comment">  *</span></span><br><span class="line"><span class="comment">  */</span></span><br></pre></td></tr></table></figure>
+<h3 id="文件到python"><a href="#文件到python" class="headerlink" title="文件到python"></a>文件到python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">根据字段类型dtype将字符串元素转为python对应的类型</span></span><br><span class="line"><span class="string">----</span></span><br><span class="line"><span class="string">:param element: 文件中读取的元素</span></span><br><span class="line"><span class="string">:param dtype: 字段类型</span></span><br><span class="line"><span class="string">:return: 对应的python类型</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">notes: field =&gt; python类型</span></span><br><span class="line"><span class="string">----</span></span><br><span class="line"><span class="string">boolean =&gt; bool</span></span><br><span class="line"><span class="string">byte =&gt; int</span></span><br><span class="line"><span class="string">short =&gt; int</span></span><br><span class="line"><span class="string">int =&gt; int</span></span><br><span class="line"><span class="string">integer =&gt; int</span></span><br><span class="line"><span class="string">long =&gt; int</span></span><br><span class="line"><span class="string">float =&gt; float</span></span><br><span class="line"><span class="string">double =&gt; float</span></span><br><span class="line"><span class="string">bigdecimal =&gt; float</span></span><br><span class="line"><span class="string">java.math.bigdecimal =&gt; float</span></span><br><span class="line"><span class="string">string =&gt; string</span></span><br><span class="line"><span class="string">java.sql.Date(java) =&gt; datetime.datetime</span></span><br><span class="line"><span class="string">java.sql.Timestamp(java) =&gt; datetime.datetime</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">other used logically</span></span><br><span class="line"><span class="string">----</span></span><br><span class="line"><span class="string">@link [[output_miner]]</span></span><br><span class="line"><span class="string">"""</span></span><br></pre></td></tr></table></figure>
+<h3 id="python到文件"><a href="#python到文件" class="headerlink" title="python到文件"></a>python到文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&quot;&quot;&quot;</span><br><span class="line">将python对象转为字符串</span><br><span class="line">----</span><br><span class="line">:param value: python对象</span><br><span class="line">:param na_rep: 缺失值对应的字符串</span><br><span class="line">:return: string</span><br><span class="line"></span><br><span class="line">notes: python对象输出到文件的规则</span><br><span class="line">----</span><br><span class="line">None =&gt; na_rep</span><br><span class="line">bool =&gt; 转为小写的true/false</span><br><span class="line">int | float =&gt; 直接转为string</span><br><span class="line">numpy: int8|int16|int64|float8|float16|float32|float128 =&gt; 直接转为string</span><br><span class="line">datetime =&gt; 转为&apos;yyyy-MM-dd HH:mm:ss.SSS&apos;(&apos;%Y-%m-%d %H:%M:%S.%f&apos;)的字符串, 精确到小数点后6位</span><br><span class="line">string =&gt; 不能包含&apos;,&apos;</span><br><span class="line">&quot;&quot;&quot;</span><br></pre></td></tr></table></figure>
+<h3 id="文件到scala-java"><a href="#文件到scala-java" class="headerlink" title="文件到scala/java"></a>文件到scala/java</h3><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * scala端读取规则</span></span><br><span class="line"><span class="comment">  * ----</span></span><br><span class="line"><span class="comment">  * 1)boolean | byte | short | int | integer | long |</span></span><br><span class="line"><span class="comment">  * float | double | bigdecimal | java.math.bigdecimal | string</span></span><br><span class="line"><span class="comment">  * 读取为字符串, 如果是空字符串则转为null值, 否则转为对应类型,</span></span><br><span class="line"><span class="comment">  * 如果无法抛出异常</span></span><br><span class="line"><span class="comment">  * 2)Date | Timestamp,</span></span><br><span class="line"><span class="comment">  * 如果是空字符串则转为null值, 否则以yyyy-MM-dd HH:mm:ss.SSS或</span></span><br><span class="line"><span class="comment">  * yyyy-MM-dd HH:mm:ss.SSSSSS形式从字符串解析, 然后转为对应类型</span></span><br><span class="line"><span class="comment">  * 3)scala端读取无法区别null值和空字符串, 统一以null值输出</span></span><br><span class="line"><span class="comment">  */</span></span><br></pre></td></tr></table></figure>
+<h3 id="其他问题"><a href="#其他问题" class="headerlink" title="其他问题"></a>其他问题</h3><p>1)scala和java类型对应和转换, 会写一篇专门的文章<br>2)缺失值处理<br>3)缺失值和空字符串如何区分(暂未找到好方法)</p>
+<h3 id="python的异常捕捉"><a href="#python的异常捕捉" class="headerlink" title="python的异常捕捉"></a>python的异常捕捉</h3><p>通过traceback</p>
+<h3 id="python脚本放置的位置"><a href="#python脚本放置的位置" class="headerlink" title="python脚本放置的位置"></a>python脚本放置的位置</h3><p>可以放在jar包中供调用, 放在resources目录下<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * 获取资源文件路径</span></span><br><span class="line"><span class="comment">  * ----</span></span><br><span class="line"><span class="comment">  * 适用于jar包调用和一般的工程引用 即获取resources路径</span></span><br><span class="line"><span class="comment">  * 适用于linux和windows环境</span></span><br><span class="line"><span class="comment">  * ----</span></span><br><span class="line"><span class="comment">  *</span></span><br><span class="line"><span class="comment">  * @param className 类名 仅适用于非静态类的类名</span></span><br><span class="line"><span class="comment">  * @return 资源的绝对路径</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getResourcesPath</span></span>(className: <span class="type">String</span>): <span class="type">String</span> = &#123;</span><br><span class="line">  <span class="keyword">val</span> constructor = <span class="type">Class</span>.forName(className).getDeclaredConstructor()</span><br><span class="line"></span><br><span class="line">  <span class="comment">//把构造器私有权限放开 --针对单例</span></span><br><span class="line">  constructor.setAccessible(<span class="literal">true</span>)</span><br><span class="line">  <span class="comment">//正常的获取实例方式</span></span><br><span class="line">  <span class="keyword">val</span> url = constructor</span><br><span class="line">    .newInstance()</span><br><span class="line">    .getClass</span><br><span class="line">    .getProtectionDomain</span><br><span class="line">    .getCodeSource</span><br><span class="line">    .getLocation</span><br><span class="line">    .toString</span><br><span class="line"></span><br><span class="line">  getRidOfFileSystem(</span><br><span class="line">    url2utf8(</span><br><span class="line">      <span class="keyword">if</span> (url == <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="type">IllegalAccessException</span>(<span class="string">s"在'<span class="subst">$className</span>'的资源目录中未找到"</span>)</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        url.toString</span><br><span class="line">      &#125;)</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 供选择的方案(选取了第二种, 同时为了保证单例(scala中常见的object)能执行将构造器方法开放, 注意会有单例攻击):</span></span><br><span class="line"><span class="comment">// ----</span></span><br><span class="line"><span class="comment">//  Class.forName(className)</span></span><br><span class="line"><span class="comment">//    .newInstance()</span></span><br><span class="line"><span class="comment">//    .getClass</span></span><br><span class="line"><span class="comment">//    .getClassLoader</span></span><br><span class="line"><span class="comment">//    .getResource(className.replace(".", "/") + ".class")</span></span><br><span class="line"><span class="comment">// windows IDE file:/E:/company/studio/算法管理/项目/UE高级算法/pythonGateWay/v1.0/target/classes/com/sefon/miner/algorithm4ue/Test$.class</span></span><br><span class="line"><span class="comment">// windows jar jar:file:/C:/Users/datashoe/.m2/repository/com/sefon/miner/pythonGateWay/1.0/pythonGateWay-1.0.jar!/com/sefon/miner/algorithm4ue/Test$.class</span></span><br><span class="line"><span class="comment">// linux jar jar:file:/usr/local/pythonGateWay-1.0.jar!/com/sefon/miner/algorithm4ue/Test$.class</span></span><br><span class="line"><span class="comment">// ----</span></span><br><span class="line"><span class="comment">//  Class.forName(className)</span></span><br><span class="line"><span class="comment">//    .newInstance()</span></span><br><span class="line"><span class="comment">//    .getClass</span></span><br><span class="line"><span class="comment">//    .getProtectionDomain</span></span><br><span class="line"><span class="comment">//    .getCodeSource</span></span><br><span class="line"><span class="comment">//    .getLocation</span></span><br><span class="line"><span class="comment">//    .toString</span></span><br><span class="line"><span class="comment">// windows IDE file:/E:/company/studio/算法管理/项目/UE高级算法/pythonGateWay/v1.0/target/classes/</span></span><br><span class="line"><span class="comment">// windows jar file:/C:/Users/datashoe/.m2/repository/com/sefon/miner/pythonGateWay/1.0/pythonGateWay-1.0.jar</span></span><br><span class="line"><span class="comment">// linux jar file:/usr/local/pythonGateWay-1.0.jar</span></span><br><span class="line"><span class="comment">// ----</span></span><br><span class="line"><span class="comment">//  Class.forName(className)</span></span><br><span class="line"><span class="comment">//    .newInstance()</span></span><br><span class="line"><span class="comment">//    .getClass</span></span><br><span class="line"><span class="comment">//    .getResource("")</span></span><br><span class="line"><span class="comment">//    .toString</span></span><br><span class="line"><span class="comment">// windows IDE file:/E:/company/studio/算法管理/项目/UE高级算法/pythonGateWay/v1.0/target/classes/</span></span><br><span class="line"><span class="comment">// windows jar file:/E:/company/studio/算法管理/项目/UE高级算法/algorithm4ue/v1.0/target/test-classes/</span></span><br><span class="line"><span class="comment">// linux file:/opt/spark-2.4.0/conf/</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="waitFor阻塞的问题"><a href="#waitFor阻塞的问题" class="headerlink" title="waitFor阻塞的问题"></a>waitFor阻塞的问题</h3><p>1)试了调节jvm堆栈无效，发现去掉一些打印有效，去掉过多的<code>try ... except ...</code>有效<br>2)看了篇博客, 输入流和异常流都是向缓冲区写数据，如果写满了会阻塞waitFor</p>
+<blockquote>
+<p>ProcessBuilder.start() 和 Runtime.exec 方法创建一个本机进程，并返回 Process 子类的一个实例，该实例可用来控制进程并获得相关信息。Process 类提供了执行从进程输入、执行输出到进程、等待进程完成、检查进程的退出状态以及销毁（杀掉）进程的方法。<br>创建进程的方法可能无法针对某些本机平台上的特定进程很好地工作，比如，本机窗口进程，守护进程，Microsoft Windows 上的 Win16/DOS 进程，或者 shell 脚本。<br>创建的子进程没有自己的终端或控制台。它的所有标准 io（即 stdin、stdout 和 stderr）操作都将通过三个流 (getOutputStream()、getInputStream() 和 getErrorStream()) 重定向到父进程。父进程使用这些流来提供到子进程的输入和获得从子进程的输出。<br>因为有些本机平台仅针对标准输入和输出流提供有限的缓冲区大小，如果读写子进程的输出流或输入流迅速出现失败，则可能导致子进程阻塞，甚至产生死锁。</p>
+</blockquote>
+<p>scala代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">  * 处理process输出流和错误流，防止进程阻塞</span><br><span class="line">  * 在process.waitFor();前调用</span><br><span class="line">  *</span><br><span class="line">  * @param process 进程</span><br><span class="line">  */</span><br><span class="line">private def dealWithStream(process: Process, command: String = &quot;&quot;): Unit = &#123;</span><br><span class="line">  if (process != null) &#123;</span><br><span class="line">    new Thread &#123;</span><br><span class="line">      override def run(): Unit = &#123;</span><br><span class="line">        println(s&quot;执行进程&apos;$command&apos;的输出信息&quot;)</span><br><span class="line">        // 处理InputStream</span><br><span class="line">        val in = new BufferedReader(new InputStreamReader(process.getInputStream))</span><br><span class="line">        var line = in.readLine()</span><br><span class="line">        while (line != null) &#123;</span><br><span class="line">          println(&quot;输出流信息:&quot; + line)</span><br><span class="line">          line = in.readLine()</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        in.close()</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;.start()</span><br><span class="line"></span><br><span class="line">    new Thread &#123;</span><br><span class="line">      override def run(): Unit = &#123;</span><br><span class="line">        println(s&quot;执行进程&apos;$command&apos;的错误流信息&quot;)</span><br><span class="line">        val err = new BufferedReader(new InputStreamReader(process.getErrorStream))</span><br><span class="line">        var line_err = err.readLine()</span><br><span class="line">        while (line_err != null) &#123;</span><br><span class="line">          println(&quot;错误流信息:&quot; + line_err)</span><br><span class="line">          line_err = err.readLine()</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        err.close()</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;.start()</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  val runtime = Runtime.getRuntime</span><br><span class="line">  val process = runtime.exec(command)</span><br><span class="line"></span><br><span class="line">  class ProcessHold(process: Process) extends Thread &#123;</span><br><span class="line">    override def run(): Unit = &#123;</span><br><span class="line">      var i = 0</span><br><span class="line">      while (process.isAlive) &#123;</span><br><span class="line">        if (i &gt;= 10) &#123;</span><br><span class="line">          throw new RuntimeException(&quot;执行python算法时关闭进程异常.&quot;)</span><br><span class="line">        &#125;</span><br><span class="line">        i = i + 1</span><br><span class="line"></span><br><span class="line">        process.destroy()</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  def closeProcess(process: Process): Unit = &#123;</span><br><span class="line">    new ProcessHold(process).start()</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  dealWithStream(process, command)</span><br><span class="line">  val i = process.waitFor()</span><br><span class="line"></span><br><span class="line">  if (i != 0) &#123;</span><br><span class="line">    closeProcess(process)</span><br><span class="line">    throw new RuntimeException(s&quot;执行python命令&apos;$command&apos;出现异常&quot;) //Array(commands)</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    // 要求目录结构和开头注释中的一致</span><br><span class="line">    //      datas = readDatas(rootUrl, message)</span><br><span class="line">    closeProcess(process)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
+<p>参考资料:<br>[1]<a href="https://www.cnblogs.com/baiqjh/articles/2647551.html" target="_blank" rel="noopener">https://www.cnblogs.com/baiqjh/articles/2647551.html</a></p>
+
+  </article>
+  <aside class="table-content" id="site-toc">
+  <div class="table-content-title">
+    <i class="fa fa-arrow-right fa-lg" id="site-toc-hide-btn"></i>
+    <span>目录</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#结绳记事-java进程调用python"><span class="toc-text">结绳记事-java进程调用python</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#java进程调用python"><span class="toc-text">java进程调用python</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#scala-java到文件"><span class="toc-text">scala/java到文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件到python"><span class="toc-text">文件到python</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#python到文件"><span class="toc-text">python到文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件到scala-java"><span class="toc-text">文件到scala/java</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他问题"><span class="toc-text">其他问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#python的异常捕捉"><span class="toc-text">python的异常捕捉</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#python脚本放置的位置"><span class="toc-text">python脚本放置的位置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#waitFor阻塞的问题"><span class="toc-text">waitFor阻塞的问题</span></a></li></ol></li></ol>
+  </div>
+</aside>
+  
+    <aside class="passage-copyright">
+      <div>本文作者: datashoe</div>
+      
+        <div>
+          原文链接: 
+          <a href target="_blank">http://yoursite.com/2019/09/10/结绳记事-java进程调用python/</a>
+        </div>
+      
+      <div>
+        版权声明: 本博客所有文章除特别声明外, 均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议. 转载请注明出处!
+      </div>
+    </aside>
+  
+  
+</div>
+
+    </main>
+    
+      
+<div class="site-comment-contanier" data-plateform="leancloud">
+  
+    <p id="site-comment-info">
+      <i class="fa fa-spinner fa-spin"></i> 评论加载中
+    </p>
+    <div id="site-comment"></div>
+  
+</div>
+    
+    <div class="site-footer-wrapper">
+  <footer class="site-footer">
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">主题</h5>
+        
+          <span class="site-footer-item">
+            <a href="https://godbmw.com/" target="_blank">pages主题源自godbmw</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="https://hexo.io/themes/" target="_blank">更多主题</a>
+          </span>
+        
+      </div>
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">博客推荐</h5>
+        
+          <span class="site-footer-item">
+            <a href="http://ruanyifeng.com/" target="_blank">阮一峰的个人网站</a>
+          </span>
+        
+      </div>
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">系列教程</h5>
+        
+          <span class="site-footer-item">
+            <a href="https://godbmw.com/design-patterns/" target="_blank">设计模式手册</a>
+          </span>
+        
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-clock-o"></i> 本站已稳定运行<span id="site-time"></span>
+    </div>
+    
+      <div class="site-footer-info">
+        <i class="fa fa-paw"></i> 您是本站第 <span id="site-count"></span> 位访客
+      </div>
+    
+    
+      <div class="site-footer-info">
+        <i class="fa fa-at"></i> Email: datashoe@126.com
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-copyright"></i> 
+      2019 <a href="https://github.com/dongyuanxin/theme-ad/" target="_blank">Theme-AD</a>.
+      Created by <a href="https://godbmw.com/" target="_blank">GodBMW</a>.
+      All rights reserved.
+    </div>
+  </footer>
+</div>
+    <div id="site-layer" style="display:none;">
+  <div class="site-layer-content">
+    <div class="site-layer-header">
+      <span class="site-layer-header-title" id="site-layer-title"></span>
+      <i class="fa fa-close" id="site-layer-close"></i>
+    </div>
+    <div class="site-layer-body" id="site-layer-container">
+      <div class="site-layer-input" id="site-layer-search" style="display: none;">
+        <input type="text">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="site-layer-reward" id="site-layer-reward" style="display: none;">
+        
+          <div>
+            <img src="../../../../images/wechat.png" alt="WeChat">
+            
+              <p>WeChat</p>
+            
+          </div>
+        
+          <div>
+            <img src="../../../../images/alipay.png" alt="AliPay">
+            
+              <p>AliPay</p>
+            
+          </div>
+        
+      </div>
+      <div id="site-layer-welcome" style="display:none;"></div>
+    </div>
+  </div>
+</div>
+    
+
+<div class="bottom-bar">
+  <div class="bottom-bar-left">
+    <a href="javascript:void(0);" data-enable="false">
+      <i class="fa fa-arrow-left"></i>
+    </a>
+    <a href="../../09/结绳记事-时间序列模型prophet/" data-enable="true">
+      <i class="fa fa-arrow-right"></i>
+    </a>
+  </div>
+  <div class="bottom-bar-right">
+    <a href="javascript:void(0);" data-enable="true" id="site-toc-show-btn">
+      <i class="fa fa-bars"></i>
+    </a>
+    
+      <a href="#site-comment" data-enable="true">
+        <i class="fa fa-commenting"></i>
+      </a>
+    
+    <a href="javascript:void(0);" id="site-toggle-share-btn">
+      <i class="fa fa-share-alt"></i>
+    </a>
+    <a href="javascript:void(0);" id="site-reward">
+      <i class="fa fa-thumbs-up"></i>
+    </a>
+    <a href="javascript:void(0);" id="back-top-btn">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+</div>
+    <div id="share-btn">
+  
+    <a id="share-btn-twitter" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-twitter"></i>
+    </a>
+  
+  
+    <a id="share-btn-facebook" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-facebook"></i>
+    </a>
+  
+  
+    <a id="share-btn-weibo" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-weibo"></i>
+    </a>
+  
+  
+    <a id="share-btn-qq" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-qq"></i>
+    </a>
+  
+  
+    <a id="share-btn-wechat" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-wechat"></i>
+    </a>
+  
+</div>
+    
+
+
+
+
+
+    
+  </body>
+</html>

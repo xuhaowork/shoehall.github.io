@@ -175,6 +175,12 @@
 <h3 id="3-由非平稳到平稳的转换"><a href="#3-由非平稳到平稳的转换" class="headerlink" title="3.由非平稳到平稳的转换"></a>3.由非平稳到平稳的转换</h3><p>1)log转换, 擅长去除极端值影响和异方差<br>2)差分, 去除趋势项, 并且零均值化, 想想趋势项f(t)的泰勒展开后取导数. 季节差分可以去除季节项.<br>理论上不限定差分阶数的话, 是可以将f(t)差分为平稳序列的. 不过会产生过度差分的问题. [过度差分]</p>
 <h3 id="4-时间序列系列算法"><a href="#4-时间序列系列算法" class="headerlink" title="4.时间序列系列算法"></a>4.时间序列系列算法</h3><p>AR<br>MA<br>ARMA<br>ARIMA<br>ARCH<br>GARCH<br>其他</p>
 <h3 id="5-时间序列系列算法的核心"><a href="#5-时间序列系列算法的核心" class="headerlink" title="5.时间序列系列算法的核心"></a>5.时间序列系列算法的核心</h3><p>1)一些有规律的平稳序列, AR/MA<br>2)基于平稳序列挖掘非平稳序列</p>
+<h3 id="6-伪回归"><a href="#6-伪回归" class="headerlink" title="6.伪回归"></a>6.伪回归</h3><p>1)什么是伪回归? 不存在相依关系但通过回归方法后表现出相依关系<br>2)一些过程相似的变量, 比如某个小孩的成长趋势和小树的成长趋势, 进行回归分析往往会表现出非常好的回归效果, 即存在密切的内在的联系. 但我们知道这两者基本没有关系. 最初就是发现股票和太阳黑子进行回归, 拟合效果非常好.<br>3)伪回归的根本原因在于时间序列的非平稳性</p>
+<h3 id="7-随机过程"><a href="#7-随机过程" class="headerlink" title="7.随机过程"></a>7.随机过程</h3><p>1)从随机过程的角度理解时间序列</p>
+<h3 id="8-平稳性"><a href="#8-平稳性" class="headerlink" title="8.平稳性"></a>8.平稳性</h3><p>1)分布不随时间的推移而发生变化<br>2)期望、方差、协方差不随时间的推移而发生变化<br>3)哪些数据不适合时间序列</p>
+<h3 id="9-时间序列模型有什么实际用处"><a href="#9-时间序列模型有什么实际用处" class="headerlink" title="9.时间序列模型有什么实际用处?"></a>9.时间序列模型有什么实际用处?</h3><p>[1]<a href="https://www.zhihu.com/question/45118664" target="_blank" rel="noopener">https://www.zhihu.com/question/45118664</a></p>
+<h3 id="10-一些白话"><a href="#10-一些白话" class="headerlink" title="10.一些白话"></a>10.一些白话</h3><p>1)数据一旦放置成序列的形式, 暴露出的信息量将会暴涨, 有好多原本随机的看起来似乎是有规律的<br>2)</p>
+<h3 id="11-参考书目"><a href="#11-参考书目" class="headerlink" title="11.参考书目"></a>11.参考书目</h3><p>[1]</p>
 
   </article>
   <aside class="table-content" id="site-toc">
@@ -183,7 +189,7 @@
     <span>目录</span>
   </div>
   <div class="table-content-main">
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#结绳记事-时间序列挖掘的一些"><span class="toc-text">结绳记事-时间序列挖掘的一些</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-平稳序列和非平稳序列"><span class="toc-text">1.平稳序列和非平稳序列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-平稳序列和非平稳序列表现的区别"><span class="toc-text">2.平稳序列和非平稳序列表现的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-由非平稳到平稳的转换"><span class="toc-text">3.由非平稳到平稳的转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-时间序列系列算法"><span class="toc-text">4.时间序列系列算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-时间序列系列算法的核心"><span class="toc-text">5.时间序列系列算法的核心</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#结绳记事-时间序列挖掘的一些"><span class="toc-text">结绳记事-时间序列挖掘的一些</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-平稳序列和非平稳序列"><span class="toc-text">1.平稳序列和非平稳序列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-平稳序列和非平稳序列表现的区别"><span class="toc-text">2.平稳序列和非平稳序列表现的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-由非平稳到平稳的转换"><span class="toc-text">3.由非平稳到平稳的转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-时间序列系列算法"><span class="toc-text">4.时间序列系列算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-时间序列系列算法的核心"><span class="toc-text">5.时间序列系列算法的核心</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-伪回归"><span class="toc-text">6.伪回归</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-随机过程"><span class="toc-text">7.随机过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-平稳性"><span class="toc-text">8.平稳性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-时间序列模型有什么实际用处"><span class="toc-text">9.时间序列模型有什么实际用处?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-一些白话"><span class="toc-text">10.一些白话</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-参考书目"><span class="toc-text">11.参考书目</span></a></li></ol></li></ol>
   </div>
 </aside>
   

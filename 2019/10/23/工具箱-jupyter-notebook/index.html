@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+  
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta name="author" content="shoe hall">
+  
+  
+  <title>Hexo</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="Hexo, Theme-AD">
+  
+
+  
+  <meta name="description" content="datashoe">
+
+  
+
+  
+    <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.11.1/dist/av-min.js" async></script>
+  
+
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  
+
+  
+    <script src="//unpkg.com/valine/dist/Valine.min.js" async></script>
+  
+
+  
+
+  <script>
+  // theme-ad's config script
+  // it can be used in every script
+  
+  window.AD_CONFIG = {
+    leancloud: {"appid":"Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz","appkey":"WaR7nrzhliHj9aVwdQzkdlGd","comment":true,"count":true},
+    welcome: {"enable":false,"interval":30},
+    start_time: "2019-04-01",
+    passwords: ["efe07af7441da2b69c4a41e42e73be4db47f66010a56900788a458354a7373ec", ],
+    is_post: true,
+    lock: false,
+    author: "shoe hall",
+    share: {"twitter":true,"facebook":true,"weibo":true,"qq":true,"wechat":true},
+    mathjax: true,
+    page_type: "",
+    root: "/"
+  };
+</script>
+
+  <script src="../../../../vendor/sha256.min.js"></script>
+<script src="../../../../js/auth.js"></script>
+<script src="../../../../js/index.js"></script>
+<script src="../../../../vendor/qrcode.min.js"></script>
+
+  
+    <link rel="icon" href="../../../../images/favicon.ico">
+    <link rel="apple-touch-icon" href="../../../../images/touch-icon.png">
+  
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../../../css/index.css">
+<link rel="stylesheet" href="../../../../styles/components/highlight/highlight.css">
+
+  
+</head>
+  <body>
+    <header class="site-header">
+  <div class="site-header-brand">
+    
+      <span class="site-header-brand-title">
+        <a href="../../../../index.html">shoehall's studio</a>
+      </span>
+    
+    
+      <span class="site-header-brand-motto"> | 远山高大 风雨飘香</span>
+    
+  </div>
+  <div class="site-header-right">
+    <nav class="site-header-navigation">
+      
+        <a href="../../../../index.html" target="_self">首页</a>
+      
+        <a href="../../../../archives/" target="_self">归档</a>
+      
+        <a href="../../../../tags/" target="_self">标签</a>
+      
+        <a href="../../../../categories/" target="_self">分类</a>
+      
+        <a href="../../../../about/" target="_self">关于</a>
+      
+    </nav>
+    <div class="site-header-btn">
+      
+        <a href="https://github.com/datashoe/" target="_blank" id="site-github">
+          <i class="fa fa-github-alt"></i>
+        </a>
+      
+      <a href="javascript:void(0);" id="site-search">
+        <i class="fa fa-search"></i>
+      </a>
+      <a href="javascript:void(0);" id="site-nav-btn">
+        <i class="fa fa-ellipsis-v"></i>
+      </a>
+    </div>
+  </div>
+</header>
+<nav class="table-content" id="site-nav">
+  <div class="table-content-title">
+    <span>导航</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc">
+      
+        <li class="toc-item">
+          <a href="../../../../index.html" target="_self">
+            首页
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="../../../../archives/" target="_self">
+            归档
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="../../../../tags/" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="../../../../categories/" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="../../../../about/" target="_self">
+            关于
+          </a>
+        </li>
+      
+    </ol>
+  </div>
+</nav>
+<div id="site-process"></div>
+    <main>
+      
+  <div class="passage">
+  <div class="passage-meta">
+    <span>
+      <i class="fa fa-calendar"></i>2019-10-23
+    </span>
+    
+    
+      <span>
+        | <i class="fa fa-unlock-alt"></i>UNLOCK
+      </span>
+    
+  </div>
+  <h1 class="passage-title">
+    
+  </h1>
+  
+  <article class="passage-article">
+    <hr>
+<p>title: 工具箱-jupyter notebook<br>date: 2019-10-23 10:14:03<br>tags:<br>-</p>
+<h2 id="生成初始文件"><a href="#生成初始文件" class="headerlink" title="生成初始文件"></a>生成初始文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter notebook --generate-config</span><br></pre></td></tr></table></figure>
+<h2 id="允许远程登录"><a href="#允许远程登录" class="headerlink" title="允许远程登录"></a>允许远程登录</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 临时允许远程登录(需要页面后面加上那个很长的token)</span></span><br><span class="line">jupyter notebook --ip=*</span><br></pre></td></tr></table></figure>
+<h2 id="后台登录"><a href="#后台登录" class="headerlink" title="后台登录"></a>后台登录</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 如果想要在后台运行(断掉远程客户端后仍然能够访问notebook)</span></span><br><span class="line">nohup  jupyter notebook --allow-root --ip=* &gt; notebook_nohup.log 2&gt;&amp;1 &amp; </span><br><span class="line"><span class="comment"># 如果要获取token去notebook_nohup.log查看, 如果要关掉进程kill -9 进程ID</span></span><br></pre></td></tr></table></figure>
+<h2 id="不打开浏览器"><a href="#不打开浏览器" class="headerlink" title="不打开浏览器"></a>不打开浏览器</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c.NotebookApp.open_browser = False</span><br></pre></td></tr></table></figure>
+<h3 id="修改默认工作目录"><a href="#修改默认工作目录" class="headerlink" title="修改默认工作目录"></a>修改默认工作目录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c.NotebookApp.notebook_dir = <span class="string">''</span></span><br></pre></td></tr></table></figure>
+<h2 id="配置多个kernel"><a href="#配置多个kernel" class="headerlink" title="配置多个kernel"></a>配置多个kernel</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建python镜像</span></span><br><span class="line">conda create -n environment_name python=X.X</span><br><span class="line"><span class="comment"># 激活python镜像</span></span><br><span class="line">activate environment_name <span class="comment"># source activate environment_name</span></span><br><span class="line">conda install -n environment_name [package]</span><br><span class="line"></span><br><span class="line">conda install -n python36 ipykernel</span><br><span class="line">python -m ipykernel install --user</span><br></pre></td></tr></table></figure>
+<p>可以通过镜像提高些速度<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 为conda添加镜像</span></span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line">conda config --<span class="built_in">set</span> show_channel_urls yes</span><br></pre></td></tr></table></figure></p>
+<h2 id="隧道访问"><a href="#隧道访问" class="headerlink" title="隧道访问"></a>隧道访问</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ssh -L 16006:127.0.0.1:6006 server_name@server.address</span><br><span class="line"><span class="comment">## 另外还可以通过xshell的隧道完成, 效果一样.</span></span><br><span class="line"><span class="comment"># 监听主机</span></span><br><span class="line"><span class="comment"># 监听端口</span></span><br><span class="line"><span class="comment"># 目标主机</span></span><br></pre></td></tr></table></figure>
+
+  </article>
+  <aside class="table-content" id="site-toc">
+  <div class="table-content-title">
+    <i class="fa fa-arrow-right fa-lg" id="site-toc-hide-btn"></i>
+    <span>目录</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#生成初始文件"><span class="toc-text">生成初始文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#允许远程登录"><span class="toc-text">允许远程登录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#后台登录"><span class="toc-text">后台登录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#不打开浏览器"><span class="toc-text">不打开浏览器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#修改默认工作目录"><span class="toc-text">修改默认工作目录</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置多个kernel"><span class="toc-text">配置多个kernel</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#隧道访问"><span class="toc-text">隧道访问</span></a></li></ol>
+  </div>
+</aside>
+  
+    <aside class="passage-copyright">
+      <div>本文作者: datashoe</div>
+      
+        <div>
+          原文链接: 
+          <a href target="_blank">http://yoursite.com/2019/10/23/工具箱-jupyter-notebook/</a>
+        </div>
+      
+      <div>
+        版权声明: 本博客所有文章除特别声明外, 均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议. 转载请注明出处!
+      </div>
+    </aside>
+  
+  
+</div>
+
+    </main>
+    
+      
+<div class="site-comment-contanier" data-plateform="leancloud">
+  
+    <p id="site-comment-info">
+      <i class="fa fa-spinner fa-spin"></i> 评论加载中
+    </p>
+    <div id="site-comment"></div>
+  
+</div>
+    
+    <div class="site-footer-wrapper">
+  <footer class="site-footer">
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">主题</h5>
+        
+          <span class="site-footer-item">
+            <a href="https://godbmw.com/" target="_blank">pages主题源自godbmw</a>
+          </span>
+        
+          <span class="site-footer-item">
+            <a href="https://hexo.io/themes/" target="_blank">更多主题</a>
+          </span>
+        
+      </div>
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">博客推荐</h5>
+        
+          <span class="site-footer-item">
+            <a href="http://ruanyifeng.com/" target="_blank">阮一峰的个人网站</a>
+          </span>
+        
+      </div>
+    
+      <div class="site-footer-col">
+        <h5 class="site-footer-title">系列教程</h5>
+        
+          <span class="site-footer-item">
+            <a href="https://godbmw.com/design-patterns/" target="_blank">设计模式手册</a>
+          </span>
+        
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-clock-o"></i> 本站已稳定运行<span id="site-time"></span>
+    </div>
+    
+      <div class="site-footer-info">
+        <i class="fa fa-paw"></i> 您是本站第 <span id="site-count"></span> 位访客
+      </div>
+    
+    
+      <div class="site-footer-info">
+        <i class="fa fa-at"></i> Email: datashoe@126.com
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-copyright"></i> 
+      2019 <a href="https://github.com/dongyuanxin/theme-ad/" target="_blank">Theme-AD</a>.
+      Created by <a href="https://godbmw.com/" target="_blank">GodBMW</a>.
+      All rights reserved.
+    </div>
+  </footer>
+</div>
+    <div id="site-layer" style="display:none;">
+  <div class="site-layer-content">
+    <div class="site-layer-header">
+      <span class="site-layer-header-title" id="site-layer-title"></span>
+      <i class="fa fa-close" id="site-layer-close"></i>
+    </div>
+    <div class="site-layer-body" id="site-layer-container">
+      <div class="site-layer-input" id="site-layer-search" style="display: none;">
+        <input type="text">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="site-layer-reward" id="site-layer-reward" style="display: none;">
+        
+          <div>
+            <img src="../../../../images/wechat.png" alt="WeChat">
+            
+              <p>WeChat</p>
+            
+          </div>
+        
+          <div>
+            <img src="../../../../images/alipay.png" alt="AliPay">
+            
+              <p>AliPay</p>
+            
+          </div>
+        
+      </div>
+      <div id="site-layer-welcome" style="display:none;"></div>
+    </div>
+  </div>
+</div>
+    
+
+<div class="bottom-bar">
+  <div class="bottom-bar-left">
+    <a href="../../30/结绳记事-谱聚类的大数据实现/" data-enable="true">
+      <i class="fa fa-arrow-left"></i>
+    </a>
+    <a href="../../22/工具箱-一些好的学术或资料库/" data-enable="true">
+      <i class="fa fa-arrow-right"></i>
+    </a>
+  </div>
+  <div class="bottom-bar-right">
+    <a href="javascript:void(0);" data-enable="true" id="site-toc-show-btn">
+      <i class="fa fa-bars"></i>
+    </a>
+    
+      <a href="#site-comment" data-enable="true">
+        <i class="fa fa-commenting"></i>
+      </a>
+    
+    <a href="javascript:void(0);" id="site-toggle-share-btn">
+      <i class="fa fa-share-alt"></i>
+    </a>
+    <a href="javascript:void(0);" id="site-reward">
+      <i class="fa fa-thumbs-up"></i>
+    </a>
+    <a href="javascript:void(0);" id="back-top-btn">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+</div>
+    <div id="share-btn">
+  
+    <a id="share-btn-twitter" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-twitter"></i>
+    </a>
+  
+  
+    <a id="share-btn-facebook" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-facebook"></i>
+    </a>
+  
+  
+    <a id="share-btn-weibo" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-weibo"></i>
+    </a>
+  
+  
+    <a id="share-btn-qq" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-qq"></i>
+    </a>
+  
+  
+    <a id="share-btn-wechat" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-wechat"></i>
+    </a>
+  
+</div>
+    
+
+
+
+
+
+    
+  </body>
+</html>
